@@ -14,12 +14,12 @@ import './App.css';
 
 class App extends Component{
 
-  // state = { hasError: false};
+  state = { hasError: false};
 
-  // static getDerviedStateFromError(error) {
-  //   console.log(error);
-  //   return { hasError: true };
-  // }
+  static getDerviedStateFromError(error) {
+    console.log(error);
+    return { hasError: true };
+  }
 
   componentDidMount() {
 
@@ -32,6 +32,7 @@ class App extends Component{
           <Header />
         </header>
         <main className='App__main'>
+          {this.state.hasError && <p className='red'>There was an error!</p>}
           <Switch>
             <Route 
               exact
