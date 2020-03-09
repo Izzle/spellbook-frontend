@@ -5,6 +5,7 @@ import './Nav.css';
 export default class Nav extends Component {
 
     render() {
+        // The Nav should render as a Hamburge icon on mobile and show the items on a larger screen
         return <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/'>Spell Library</Link></li>
