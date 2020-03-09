@@ -26,13 +26,20 @@ class App extends Component{
     return { hasError: true };
   }
 
+  setSpellBookList = ( spellbooks ) => {
+    this.setState({
+      spellbooks
+    })
+  }
+
   componentDidMount() {
 
   }
 
   render() {
     const contextValue = {
-      spellbooks: this.state.spellbooks
+      spellbooks: this.state.spellbooks,
+      setSpellBookList: this.setSpellBookList
     };
 
     return (
