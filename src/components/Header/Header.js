@@ -14,7 +14,7 @@ export default class Header extends Component {
             <h1>
                 <Link to='/'>Spellbook</Link>
             </h1>
-            
+            {TokenService.}
           </nav>
         </>
     }
