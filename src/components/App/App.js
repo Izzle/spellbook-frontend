@@ -10,7 +10,7 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import ResetPasswordPage from '../../routes/ResetPasswordPage/ResetPasswordPage';
 import SpellLibraryPage from '../../routes/SpellLibraryPage/SpellLibraryPage';
 import SpellPage from '../../routes/SpellPage/SpellPage';
-import SpellLibraryContext from '../../contexts/SpellLibraryContext';
+import SpellContext from '../../contexts/SpellContext';
 
 import './App.css';
 
@@ -18,7 +18,8 @@ class App extends Component{
 
   state = { 
     hasError: false,
-    spellbooks: []
+    spellbooks: [],
+    spells: []
   };
 
   static getDerviedStateFromError(error) {
@@ -29,7 +30,13 @@ class App extends Component{
   setSpellBookList = ( spellbooks ) => {
     this.setState({
       spellbooks
-    })
+    });
+  }
+
+  setSpells = ( spells ) => {
+    this.setState({
+      spells
+    });
   }
 
   componentDidMount() {
@@ -39,11 +46,13 @@ class App extends Component{
   render() {
     const contextValue = {
       spellbooks: this.state.spellbooks,
-      setSpellBookList: this.setSpellBookList
+      spells: this.state.spells,
+      setSpellBookList: this.setSpellBookList,
+      setSpells: this.setSpells
     };
 
     return (
-      <SpellLibraryContext.Provider value={contextValue}>
+      <SpellContext.Provider value={contextValue}>
         <div className='App'>
           <header className='App__header'>
             <Header />
@@ -91,7 +100,7 @@ class App extends Component{
             </Switch>
           </main>
         </div>
-      </SpellLibraryContext.Provider>
+      </SpellContext.Provider>
     );
   }
 

@@ -6,7 +6,8 @@ export default class Spellbook extends Component {
     render() {
         return (
             <div>
-                <h4>Spell Book 1</h4>
+                <h4>{this.props.name}</h4>
+                <p>{this.props.spells}</p>
             </div>
         )
     }

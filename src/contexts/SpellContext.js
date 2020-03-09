@@ -2,5 +2,7 @@ import React from 'react';
 
 export default React.createContext({
     spellbooks: [],
-    setSpellBookList: () => {}
+    spells: [],
+    setSpellBookList: () => {},
+    setSpells: () => {}
 });
