@@ -36,22 +36,11 @@ class App extends Component{
             <Route 
               exact
               path={'/'}
-              component={LandingPage}/>
-            <Route 
-              path={'/spellbook-builder'}
-              component={BuildSpellBookPage}
-            />
-            <Route 
-              path={'/spell-creator'}
-              component={CreateSpellPage}
+              component={LandingPage}
             />
             <Route 
               path={'/login'}
               component={LoginPage}
-            />
-            <Route 
-              path={'/page-not-found'}
-              component={NotFoundPage}
             />
             <Route 
               path={'/register'}
@@ -62,12 +51,24 @@ class App extends Component{
               component={ResetPasswordPage}
             />
             <Route 
+              path={'/spellbook-builder'}
+              component={BuildSpellBookPage}
+            />
+            <Route 
+              path={'/spell-creator'}
+              component={CreateSpellPage}
+            />
+            <Route 
               path={'/spells'}
               component={SpellLibraryPage}
             />
             <Route 
               path={'/spells/:id'}
               component={SpellPage}
+            />
+            <Route 
+              path={'/page-not-found'}
+              component={NotFoundPage}
             />
           </Switch>
         </main>

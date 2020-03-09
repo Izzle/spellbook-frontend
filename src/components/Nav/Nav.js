@@ -8,9 +8,9 @@ export default class Nav extends Component {
         // The Nav should render as a Hamburge icon on mobile and show the items on a larger screen
         return <ul>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/'>Spell Library</Link></li>
-            <li><Link to='/'>Create a Spell</Link></li>
-            <li><Link to='/'>Build a Spellbook</Link></li>
+            <li><Link to='/spells'>Spell Library</Link></li>
+            <li><Link to='/spell-creator'>Create a Spell</Link></li>
+            <li><Link to='/spellbook-builder'>Build a Spellbook</Link></li>
         </ul>
     }
 }

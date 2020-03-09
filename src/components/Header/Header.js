@@ -13,10 +13,10 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className='Header__not-logged-in'>
-        <Link to='/'>
+        <Link to='/login'>
           Log In
         </Link>
-        <Link to='/'>
+        <Link to='/register'>
           Register
         </Link>
       </div> 
