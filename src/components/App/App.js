@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-import LandingPage from '../../routes/LandingPage';
-import BuildSpellBookPage from '../../routes/BuildSpellBookPage';
-import CreateSpellPage from '../../routes/CreateSpellPage';
-import LoginPage from '../../routes/LoginPage';
-import NotFoundPage from '../../routes/NotFoundPage';
-import RegisterPage from '../../routes/RegisterPage';
-import ResetPasswordPage from '../../routes/ResetPasswordPage';
-import SpellLibraryPage from '../../routes/SpellLibraryPage';
-import SpellPage from '../../routes/SpellPage';
+import LandingPage from '../../routes/LandingPage/LandingPage';
+import BuildSpellBookPage from '../../routes/BuildSpellBookPage/BuildSpellBookPage';
+import CreateSpellPage from '../../routes/CreateSpellPage/CreateSpellPage';
+import LoginPage from '../../routes/LoginPage/LoginPage';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
+import RegisterPage from '../../routes/RegisterPage/RegisterPage';
+import ResetPasswordPage from '../../routes/ResetPasswordPage/ResetPasswordPage';
+import SpellLibraryPage from '../../routes/SpellLibraryPage/SpellLibraryPage';
+import SpellPage from '../../routes/SpellPage/SpellPage';
 import './App.css';
 
 class App extends Component{
