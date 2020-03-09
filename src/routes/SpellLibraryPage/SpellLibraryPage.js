@@ -25,7 +25,7 @@ export default class SpellLibraryPage extends Component {
               return <SpellBook
                 key={spellbook.id}
                 name={spellbook.spellbook_name}
-                spells={spellbook.spellsInBook}
+                spellsInBook={spellbook.spellsInBook}
               />
           })}
       </section>
