@@ -30,7 +30,7 @@ export default class SpellLibraryPage extends Component {
                   id={spell.id}
                   name={spell.spell_name}
                   classes={spell.classes}
-                  level={spell.level}
+                  level={spell.spell_level}
                   school={spell.school}
                   range={spell.range}
                   castingTime={spell.castingTime}

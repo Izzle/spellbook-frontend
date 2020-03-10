@@ -37,7 +37,7 @@ const STORE = {
            id: 1,
            spell_name: 'Fireball',
            classes: [2, 5, 6, 7], // references the IDs of classes that can use this spell
-           level: 3, // level 0 is Cantrip!
+           spell_level: 3, // level 0 is Cantrip!
            school: 'Evocation',
            range: '150 feet',
            castingTime: '1 action',
@@ -50,7 +50,7 @@ const STORE = {
             id: 2,
             spell_name: 'Frostbolt',
             classes: [1, 2, 5, 6], // references the IDs of classes that can use this spell
-            level: 4, // level 0 is Cantrip!
+            spell_level: 4, // level 0 is Cantrip!
             school: 'Frost Spec lol',
             range: '120 feet',
             castingTime: '1 action',
@@ -60,17 +60,17 @@ const STORE = {
             higherLevels: `When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd.`
        },
        {
-        id: 3,
-        spell_name: 'Heal',
-        classes: [1, 2, 3, 4], // references the IDs of classes that can use this spell
-        level: 0, // level 0 is Cantrip!
-        school: 'Restoration?',
-        range: '220 feet',
-        castingTime: '1 action',
-        components: 'V',
-        duration: 'Channelled',
-        description: `A heal to keep the rabble alive`,
-        higherLevels: `When you cast this spell using a spell slot of 5th level or higher, the heal increases by 1d4 for each slot level above 5rd.`
+            id: 3,
+            spell_name: 'Heal',
+            classes: [1, 2, 3, 4], // references the IDs of classes that can use this spell
+            spell_level: 0, // level 0 is Cantrip!
+            school: 'Restoration?',
+            range: '220 feet',
+            castingTime: '1 action',
+            components: 'V',
+            duration: 'Channelled',
+            description: `A heal to keep the rabble alive`,
+            higherLevels: `When you cast this spell using a spell slot of 5th level or higher, the heal increases by 1d4 for each slot level above 5rd.`
        }
    ],
    spellbooks: [
