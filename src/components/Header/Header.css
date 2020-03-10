@@ -1,6 +1,11 @@
 .Header {
     background-color: lightgray;
 }
-.Header__not-logged-in {
+.Header__not-logged-in, .Header__logged-in {
+  display: flex;
+  justify-content: center;
+}
 
-  }
+.Header__Link {
+  margin-right: 10px;
+}

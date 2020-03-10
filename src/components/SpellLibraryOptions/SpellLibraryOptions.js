@@ -1,11 +1,12 @@
 import React, { Component} from 'react';
+import './SpellLibraryOptions.css';
 
 export default class SpellLibraryOptions extends Component {
 
     render() {
         // should refactor this to actually pull the classes from the DB so this list is dynamic and only includes those classes
         // then if a new class is added it will work be simple to add in
-        return <>
+        return <div className="SpellLibraryOptions__container">
           <label htmlFor="class-select">Select a class</label>
 
           <select name="classes" id="class-select">
@@ -28,6 +29,6 @@ export default class SpellLibraryOptions extends Component {
               <option value="TESTVLAUES">TEST VALUES</option>
               <option value="TESTVLAUES2">TEST VALUES 2</option>
           </select>
-        </>
+        </div>
     }
 }

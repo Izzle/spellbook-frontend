@@ -1,0 +1,8 @@
+.SpellLibraryPage__container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.SpellLibraryPage__Spells__container {
+    display: flex;
+}

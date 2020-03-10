@@ -3,6 +3,7 @@ import SpellContext from '../../contexts/SpellContext';
 import SpellLibraryOptions from '../../components/SpellLibraryOptions/SpellLibraryOptions';
 import Spell from '../../components/Spell/Spell';
 import STORE from '../../store';
+import './SpellLibraryPage.css';
 
 export default class SpellLibraryPage extends Component {
   static contextType = SpellContext;
@@ -20,23 +21,27 @@ export default class SpellLibraryPage extends Component {
 
     return (
       <section className='SpellLibraryPage'>
+        <div className='SpellLibraryPage__container'>
           <SpellLibraryOptions />
-          {spells.map((spell, idx) => {
-              return <Spell
-                key={idx}
-                id={spell.id}
-                name={spell.spell_name}
-                classes={spell.classes}
-                level={spell.level}
-                school={spell.school}
-                range={spell.range}
-                castingTime={spell.castingTime}
-                spellComponents={spell.components}
-                duration={spell.duration}
-                description={spell.description}
-                higherLevels={spell.higherLevels}
-              />
-          })}
+          <div className='SpellLibraryPage__Spells__container'>
+            {spells.map((spell, idx) => {
+                return <Spell
+                  key={idx}
+                  id={spell.id}
+                  name={spell.spell_name}
+                  classes={spell.classes}
+                  level={spell.level}
+                  school={spell.school}
+                  range={spell.range}
+                  castingTime={spell.castingTime}
+                  spellComponents={spell.components}
+                  duration={spell.duration}
+                  description={spell.description}
+                  higherLevels={spell.higherLevels}
+                />
+            })}
+          </div>
+        </div>
       </section>
     )
   }
