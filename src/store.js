@@ -74,34 +74,36 @@ const STORE = {
        }
    ],
    spellbooks: [
-       {
-           id: 1,
-           spellbook_name: 'Deck 1: Arcane!',
-           spellsInBook: [1, 3, 4],
-           customLayout: {  // not going to do this right now, just trying to figure out my data
-               exists: false,
-               layout: []
-           }
-       },
-       {
-            id: 2,
-            spellbook_name: 'Deck 2',
-            spellsInBook: [2, 4],
-            customLayout: {  // not going to do this right now, just trying to figure out my data
-                exists: false,
-                layout: []
-             }
-       },
-       {
-            id: 3,
-            spellbook_name: 'Spellbook 3',
-            spellsInBook: [2, 4],
-            customLayout: {  // not going to do this right now, just trying to figure out my data
-                exists: false,
-                layout: []
-            }
-       }
-   ]
+    {
+      id: 1,
+      spellbook_name: 'Deck 1: Arcane!',
+      spellsInBook: [1, 3, 4],
+      classes_selected: [5], // this is OPTIONAL, if a user selects classes for their deck - we'll only show cards for that class when building
+      customLayout: {  // not going to do this right now, just trying to figure out my data
+        exists: false,
+        layout: []
+      }
+    },
+    {
+      id: 2,
+      spellbook_name: 'Deck 2: Whatever',
+      spellsInBook: [2, 4],
+      classes_selected: [1, 4], // this is OPTIONAL, if a user selects classes for their deck - we'll only show cards for that class when building
+      customLayout: {  // not going to do this right now, just trying to figure out my data
+        exists: false,
+        layout: []
+      }
+    },
+    {
+      id: 3,
+      spellbook_name: 'Spellbook 3',
+      classes_selected: [6, 7], // this is OPTIONAL, if a user selects classes for their deck - we'll only show cards for that class when building
+      customLayout: {  // not going to do this right now, just trying to figure out my data
+        exists: false,
+        layout: []
+      }
+    }
+  ]
 }
 
 export default STORE;
