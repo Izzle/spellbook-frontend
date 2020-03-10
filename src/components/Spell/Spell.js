@@ -4,12 +4,12 @@ export default function Spell(props) {
     return (
       <div className='Spell__main'>
           <h4>{props.name}</h4>
-          <p>{`Level: ${props.level} // School: Evocation // Range: 150 feet`}</p>
-          <p>Classes: Cleric, Sorcerer, Wizard, Warlock</p>
-          <p>Casting Time: 1 Action // Duration: Instantaneous // Components: V, S, M </p>
-          <p>Description: boom fire</p>
+          <p>{`Level: ${props.level} // School: ${props.school} // Range: ${props.range}`}</p>
+          <p>{`Classes: ${props.classes} (FIX THIS: Currently using the class ID)`}</p>
+          <p>{`Casting Time: ${props.castingTime} // Duration: ${props.duration} // Components: ${props.spellComponents}`}</p>
+          <p>{`Description: ${props.description}`}</p>
           <h5>At higher levels</h5>
-          <p>Description: Hits even harder</p>
+          <p>{`${props.higherLevels}`}</p>
 
           {/* key={spell.id}
                 name={spell.spell_name}
