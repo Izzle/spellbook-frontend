@@ -29,7 +29,7 @@ export default class SpellLibraryPage extends Component {
                   key={idx}
                   id={spell.id}
                   name={spell.spell_name}
-                  classes={spell.spell_classes}
+                  classes={spell.spell_classes /* This doesnt exist like this anymore, I had to make a table to JOIN tables called class_spells */}
                   level={spell.spell_level}
                   school={spell.spell_school}
                   range={spell.spell_range}

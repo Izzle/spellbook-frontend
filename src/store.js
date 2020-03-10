@@ -36,7 +36,6 @@ const STORE = {
     {
       id: 1,
       spell_name: 'Fireball',
-      spell_classes: [2, 5, 6, 7], // references the IDs of classes that can use this spell
       spell_level: 3, // level 0 is Cantrip!
       spell_school: 'Evocation',
       spell_range: '150 feet', // optional
@@ -49,7 +48,6 @@ const STORE = {
     {
       id: 2,
       spell_name: 'Frostbolt',
-      spell_classes: [1, 2, 5, 6], // references the IDs of classes that can use this spell
       spell_level: 4, // level 0 is Cantrip!
       spell_school: 'Frost Spec lol',
       spell_range: '120 feet',
@@ -62,7 +60,6 @@ const STORE = {
     {
       id: 3,
       spell_name: 'Heal',
-      spell_classes: [1, 2, 3, 4], // references the IDs of classes that can use this spell
       spell_level: 0, // level 0 is Cantrip!
       spell_school: 'Restoration?',
       spell_range: '220 feet',
