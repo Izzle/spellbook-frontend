@@ -55,8 +55,6 @@ export default class CreateSpellPage extends Component {
     // When the user types ANYTHING we set the value of touched to "true" from "false" this way we know
     // when to correctly render our ValidationError
     let newState = { [keyName]: {value, touched: true}};
-    console.log(newState);
-
     this.setState(newState);
   }
 
@@ -78,13 +76,19 @@ export default class CreateSpellPage extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(this.state);
+  }
+
   render() {
     const levelError = this.validateLevel();
     const nameError = this.validateName();
 
     return (
       <section className='CreateSpellPage__main'>
-          <form className='CreateSpellPage__form'>
+          <form className='CreateSpellPage__form' onSubmit={e => this.handleSubmit(e)}>
             <h2>Create a new Spell</h2>
             <div className='form-group'>
               <label htmlFor='add-spell-name'>Spell Name </label>
@@ -125,7 +129,7 @@ export default class CreateSpellPage extends Component {
                 onChange={e => this.updateSpell(e.target.value, 'level')}
                 required>
                   <option value="">Select spell level</option>
-                  <option value="0">Cantrip</option>
+                  <option value="0" defaultValue="selected">Cantrip</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -213,6 +217,15 @@ export default class CreateSpellPage extends Component {
                 required
                 />
                 {/* ADD VALIDATION HERE */}
+            </div>
+
+            <div className="CreateSpellPage__button__group">
+              <button type="reset" className="CreateSpellPage__button">Cancel</button>
+              <button
+                type="submit"
+                className="CreateSpellPage__button"
+                 // if anything triggers our validation method, the button gets disabled
+                disabled={this.validateLevel() || this.validateName()}>Create Spell</button>
             </div>
           </form>
       </section>
