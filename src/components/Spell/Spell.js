@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import STORE  from '../../store';
 
-export default class SpellItem extends Component {
+export default class Spell extends Component {
 
   render() {
     return (
-      <div className='SpellItem'>
+      <div className='Spell__main'>
           <h4>Fireball</h4>
           <p>Level: 3 // School: Evocation // Range: 150 feet</p>
           <p>Classes: Cleric, Sorcerer, Wizard, Warlock</p>

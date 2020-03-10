@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
-import { Link } from 'react-router-dom';
 import SpellContext from '../../contexts/SpellContext';
-import SpellItem from '../../components/SpellItem/SpellItem';
+import Spell from '../../components/Spell/Spell';
 import STORE from '../../store';
 
 export default class Spellbook extends Component {
@@ -24,7 +23,7 @@ export default class Spellbook extends Component {
             <div>
                 <h4>{this.props.name}</h4>
                 <p>{this.props.spellsInBook}</p>
-                <SpellItem />
+                <Spell />
             </div>
         )
     }

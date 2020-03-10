@@ -46,6 +46,19 @@ const STORE = {
            description: `A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.`,
            higherLevels: `When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.`
        },
+       {
+            id: 2,
+            spell_name: 'Frostbolt',
+            classes: [1, 2, 5, 6, ], // references the IDs of classes that can use this spell
+            level: 4, // level 0 is Cantrip!
+            school: 'Frost Spec lol',
+            range: '120 feet',
+            castingTime: '1 action',
+            components: 'V, S, M (A tiny ball of ice',
+            duration: 'Instantaneous',
+            description: `A cold iceball flies towards your enemy`,
+            higherLevels: `When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd.`
+       },
        {}
    ],
    spellbooks: [
