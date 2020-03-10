@@ -37,7 +37,7 @@ export default class SpellLibraryPage extends Component {
                   spellComponents={spell.spell_components}
                   duration={spell.spell_duration}
                   description={spell.spell_description}
-                  higherLevels={spell.higherLevels}
+                  higherLevels={spell.higher_levels}
                 />
             })}
           </div>
