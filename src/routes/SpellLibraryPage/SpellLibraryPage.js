@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SpellContext from '../../contexts/SpellContext';
 import SpellLibraryOptions from '../../components/SpellLibraryOptions/SpellLibraryOptions';
-import SpellBook from '../../components/SpellBook/SpellBook';
+import Spell from '../../components/Spell/Spell';
 import STORE from '../../store';
 
 export default class SpellLibraryPage extends Component {
@@ -12,20 +12,29 @@ export default class SpellLibraryPage extends Component {
     //   SpellApiService.getSpells()
     //    .then(this.context.setSpellBookList)
     //    .catch(this.context.setError);
-    this.context.setSpellBookList(STORE.spellbooks);
+    this.context.setSpells(STORE.spells);
   }
 
   render() {
-    const { spellbooks = [] } = this.context;
+    const { spells = [] } = this.context;
 
     return (
       <section className='SpellLibraryPage'>
           <SpellLibraryOptions />
-          {spellbooks.map(spellbook => {
-              return <SpellBook
-                key={spellbook.id}
-                name={spellbook.spellbook_name}
-                spellsInBook={spellbook.spellsInBook}
+          {spells.map((spell, idx) => {
+              return <Spell
+                key={idx}
+                id={spell.id}
+                name={spell.spell_name}
+                classes={spell.classes}
+                level={spell.level}
+                school={spell.school}
+                range={spell.range}
+                castingTime={spell.castingTime}
+                spellComponents={spell.components}
+                duration={spell.duration}
+                description={spell.description}
+                higherLevels={spell.higherLevels}
               />
           })}
       </section>
