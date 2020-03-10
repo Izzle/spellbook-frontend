@@ -60,6 +60,13 @@ export default class CreateSpellPage extends Component {
     this.setState(newState);
   }
 
+  validateLevel() {
+    const level = this.state.level.value.trim();
+    if(level.length === 0) {
+      return 'Please select a spell level'
+    }
+  }
+
   validateName() {
     // Validates the name of a new spell
     // this removes any whitespace from value and makes sure the value isnt empty
@@ -72,6 +79,7 @@ export default class CreateSpellPage extends Component {
   }
 
   render() {
+    const levelError = this.validateLevel();
     const nameError = this.validateName();
 
     return (
@@ -110,18 +118,25 @@ export default class CreateSpellPage extends Component {
             </div>
 
             <div className='form-group'>
-              <label htmlFor='add-spell-level'>Level </label>
-              <input
-                type='text'
-                className='CreateSpellPage__control'
-                // on submit, the name will what the server will get data keys name after
-                name='add-spell-level'
-                id='add-spell-level'
-                 // Each time the user types anything into input, we update the state. This allows real-time error messages (ie before submit)
+              <label htmlFor="add-spell-level">Level </label>
+              <select 
+                name="add-spell-level"
+                id="add-spell-level"
                 onChange={e => this.updateSpell(e.target.value, 'level')}
-                required
-                />
-                {/* ADD VALIDATION HERE */}
+                required>
+                  <option value="">Select spell level</option>
+                  <option value="0">Cantrip</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+              </select>
+              {this.state.level.touched && (<ValidationError message={levelError} />)}
             </div>
 
             <div className='form-group'>
