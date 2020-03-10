@@ -29,14 +29,14 @@ export default class SpellLibraryPage extends Component {
                   key={idx}
                   id={spell.id}
                   name={spell.spell_name}
-                  classes={spell.classes}
+                  classes={spell.spell_classes}
                   level={spell.spell_level}
-                  school={spell.school}
-                  range={spell.range}
-                  castingTime={spell.castingTime}
-                  spellComponents={spell.components}
-                  duration={spell.duration}
-                  description={spell.description}
+                  school={spell.spell_school}
+                  range={spell.spell_range}
+                  castingTime={spell.cast_time}
+                  spellComponents={spell.spell_components}
+                  duration={spell.spell_duration}
+                  description={spell.spell_description}
                   higherLevels={spell.higherLevels}
                 />
             })}
