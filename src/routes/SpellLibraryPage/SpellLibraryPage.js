@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SpellContext from '../../contexts/SpellContext';
+import SpellApiService from '../../services/spell-api-service';
 import SpellLibraryOptions from '../../components/SpellLibraryOptions/SpellLibraryOptions';
 import Spell from '../../components/Spell/Spell';
 import STORE from '../../store';
@@ -10,10 +11,10 @@ export default class SpellLibraryPage extends Component {
   
   componentDidMount() {
     // Use something like this when the API is working
-    //   SpellApiService.getSpells()
-    //    .then(this.context.setSpellBookList)
-    //    .catch(this.context.setError);
-    this.context.setSpells(STORE.spells);
+      SpellApiService.getAllSpells()
+       .then(this.context.setSpells)
+       .catch(this.context.setError);
+    // this.context.setSpells(STORE.spells);
   }
 
   render() {

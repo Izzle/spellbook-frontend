@@ -34,6 +34,7 @@ class App extends Component{
   }
 
   setSpells = ( spells ) => {
+    console.log(spells);
     this.setState({
       spells
     });
