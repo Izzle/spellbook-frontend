@@ -9,8 +9,13 @@ export default function Spell(props) {
           <p>{`Classes: ${props.classes} (FIX THIS: Currently using the class ID)`}</p>
           <p>{`Casting Time: ${props.castingTime} // Duration: ${props.duration} // Components: ${props.spellComponents}`}</p>
           <p>{`Description: ${props.description}`}</p>
-          <h5>At higher levels</h5>
-          <p>{`${props.higherLevels}`}</p>
+          
+          {props.higherLevels.length > 0 && 
+            <>
+              <h5>At higher levels</h5> 
+              <p>{props.higherLevels}</p>
+            </>
+          }
 
           {/* key={spell.id}
                 name={spell.spell_name}
