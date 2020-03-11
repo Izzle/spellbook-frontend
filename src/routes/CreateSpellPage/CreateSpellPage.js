@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../../config';
 import SpellContext from '../../contexts/SpellContext';
 import ValidationError from '../../components/ValidationError/ValidationError';
 
@@ -6,7 +7,7 @@ export default class CreateSpellPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = { 
       name: {
         value: '',
         touched: false
@@ -78,9 +79,56 @@ export default class CreateSpellPage extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    // object destructing to get our variables from state
+    const {
+      name,
+      school,
+      level,
+      castingTime,
+      range,
+      spellComponents,
+      duration,
+      description,
+      higherLevels
+    } = this.state;
+    
+    // formatting our data so the server will receive the correct variable names in our POST request
+    const data = {
+      spell_name: name.value,
+      spell_school: school.value,
+      spell_level: level.value,
+      cast_time: castingTime.value,
+      spell_range: range.value,
+      spell_components: spellComponents.value,
+      spell_duration: duration.value,
+      spell_description: description.value,
+      higher_levels: higherLevels.value
+    };
+
+    fetch(`${config.API_ENDPOINT}/spells`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(resp => {
+      if(!resp.ok) {
+        throw new Error(`Error with POST request: ${resp}`)
+      }
+      return resp.json();
+    })
+    .then(this.context.setSpells)
+    .catch(this.context.setError);
+    // REFACTOR THIS TO USE 'SpellApiService.postSpell(data);
+
+// SpellApiService.getAllSpells()
+//        .then(this.context.setSpells)
+//        .catch(this.context.setError);
 
     console.log(this.state);
   }
+  
 
   render() {
     const levelError = this.validateLevel();

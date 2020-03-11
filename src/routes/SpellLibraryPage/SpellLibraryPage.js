@@ -3,18 +3,15 @@ import SpellContext from '../../contexts/SpellContext';
 import SpellApiService from '../../services/spell-api-service';
 import SpellLibraryOptions from '../../components/SpellLibraryOptions/SpellLibraryOptions';
 import Spell from '../../components/Spell/Spell';
-import STORE from '../../store';
 import './SpellLibraryPage.css';
-
+ 
 export default class SpellLibraryPage extends Component {
   static contextType = SpellContext;
   
   componentDidMount() {
-    // Use something like this when the API is working
       SpellApiService.getAllSpells()
        .then(this.context.setSpells)
        .catch(this.context.setError);
-    // this.context.setSpells(STORE.spells);
   }
 
   render() {
