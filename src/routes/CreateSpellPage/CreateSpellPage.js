@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import config from '../../config';
 import SpellContext from '../../contexts/SpellContext';
 import ValidationError from '../../components/ValidationError/ValidationError';
+import SpellApiService from '../../services/spell-api-service';
 
 export default class CreateSpellPage extends Component {
   constructor(props) {
@@ -92,8 +92,8 @@ export default class CreateSpellPage extends Component {
       higherLevels
     } = this.state;
     
-    // formatting our data so the server will receive the correct variable names in our POST request
-    const data = {
+    // formatting our POST request data so the server will receive the correct variable names
+    const newSpell = {
       spell_name: name.value,
       spell_school: school.value,
       spell_level: parseInt(level.value),
@@ -105,26 +105,9 @@ export default class CreateSpellPage extends Component {
       higher_levels: higherLevels.value
     };
 
-    fetch(`${config.API_ENDPOINT}/spells`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => {
-      return (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json();
-    })
+    SpellApiService.postSpell(newSpell)
     .then(this.context.addSpell)
     .catch(this.context.setError);
-    // REFACTOR THIS TO USE 'SpellApiService.postSpell(data);
-
-// SpellApiService.getAllSpells()
-//        .then(this.context.setSpells)
-//        .catch(this.context.setError);
-
   }
   
 
