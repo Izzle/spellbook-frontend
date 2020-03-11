@@ -9,12 +9,12 @@ const SpellApiService = {
         .then(res => {
             return (!res.ok)
                         ? res.json().then(e => Promise.reject(e))
-                        : res.json()
+                        : res.json();
         })
   },
   getSpell(spellId) {},
   postSpell(newSpell) {
-    
+
   }
 };
 

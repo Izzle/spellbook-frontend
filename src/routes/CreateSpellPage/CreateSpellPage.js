@@ -96,7 +96,7 @@ export default class CreateSpellPage extends Component {
     const data = {
       spell_name: name.value,
       spell_school: school.value,
-      spell_level: level.value,
+      spell_level: parseInt(level.value),
       cast_time: castingTime.value,
       spell_range: range.value,
       spell_components: spellComponents.value,
@@ -112,11 +112,11 @@ export default class CreateSpellPage extends Component {
       },
       body: JSON.stringify(data)
     })
-    .then(resp => {
-      if(!resp.ok) {
-        throw new Error(`Error with POST request: ${resp}`)
-      }
-      return resp.json();
+    .then(res => {
+      console.log(res);
+      return (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json();
     })
     .then(this.context.setSpells)
     .catch(this.context.setError);
