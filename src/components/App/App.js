@@ -34,10 +34,18 @@ class App extends Component{
   }
 
   setSpells = ( spells ) => {
-    console.log(spells);
+    //console.log(spells);
     this.setState({
       spells
     });
+  }
+
+  addSpell = spell => {
+    // Adds a spell to state / context
+    this.setState([
+      ...this.state.spells,
+      spell
+    ]);
   }
 
   componentDidMount() {

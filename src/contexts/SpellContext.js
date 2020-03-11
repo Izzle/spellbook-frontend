@@ -5,5 +5,6 @@ export default React.createContext({
     spellbooks: [],
     spells: [],
     setSpellBookList: () => {},
-    setSpells: () => {}
+    setSpells: () => {},
+    addSpell: () => {}
 });

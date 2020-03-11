@@ -113,12 +113,11 @@ export default class CreateSpellPage extends Component {
       body: JSON.stringify(data)
     })
     .then(res => {
-      console.log(res);
       return (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json();
     })
-    .then(this.context.setSpells)
+    .then(this.context.addSpell)
     .catch(this.context.setError);
     // REFACTOR THIS TO USE 'SpellApiService.postSpell(data);
 
@@ -126,7 +125,6 @@ export default class CreateSpellPage extends Component {
 //        .then(this.context.setSpells)
 //        .catch(this.context.setError);
 
-    console.log(this.state);
   }
   
 
