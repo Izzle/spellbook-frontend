@@ -59,6 +59,7 @@ class App extends Component{
                 component={ResetPasswordPage}
               />
               <Route 
+                exact
                 path={'/spellbook'}
                 component={SpellBookListPage}/>
               <Route 
@@ -73,6 +74,7 @@ class App extends Component{
                 component={CreateSpellPage}
               />
               <Route 
+                exact
                 path={'/spells'}
                 component={SpellLibraryPage}
               />

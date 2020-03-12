@@ -14,10 +14,10 @@ export default class SpellPage extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     
-    console.log(id);
-    SpellApiService.getSpellById(id)
-      .then(this.context.setSpells)
-      .catch(this.context.setError);
+    // console.log(id);
+    // SpellApiService.getSpellById(id)
+    //   .then(this.context.setSpells)
+    //   .catch(this.context.setError);
   }
 
   render() {
