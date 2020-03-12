@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SpellBookListContext from '../../contexts/SpellBookListContext';
 import './SpellBookListPage.css';
 
 export default class SpellBookListPage extends Component {
+
+  static contextType = SpellBookListContext;
+
   render() {
     return (
       <section className='SpellBookListPage'>

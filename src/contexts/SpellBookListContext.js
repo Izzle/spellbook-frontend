@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const SpellContext = React.createContext({
+const SpellBookListContext = React.createContext({
     error: null,
     spellbooks: [],
     spells: [],
@@ -12,7 +12,7 @@ const SpellContext = React.createContext({
     addSpell: () => {}
 });
 
-export default SpellContext;
+export default SpellBookListContext;
 
 export class SpellProvider extends Component {
     state = { 
@@ -67,9 +67,9 @@ export class SpellProvider extends Component {
           };
 
         return (
-            <SpellContext.Provider value={contextValue}>
+            <SpellBookListContext.Provider value={contextValue}>
                 {this.props.children}
-            </SpellContext.Provider>
+            </SpellBookListContext.Provider>
         );
       }
 }
