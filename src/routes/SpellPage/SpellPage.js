@@ -6,25 +6,24 @@ import SpellApiService from '../../services/spell-api-service';
 // feel free to erase everything in here
 export default class SpellPage extends Component {
   static defaultProps = {
-      match: { params: { id: '1'} }
+      match: { params: {} }
   };
 
   static contextType = SpellContext;
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    
-    // console.log(id);
-    // SpellApiService.getSpellById(id)
-    //   .then(this.context.setSpells)
+    this.context.clearError();
+
+    SpellApiService.getSpellById(id)
+    //   .then(console.log)
     //   .catch(this.context.setError);
   }
 
   render() {
-    console.log(this.props.match);
     return (
       <div className='SpellPage'>
-        <h2>An page for individual spells!</h2>
+        <h2>An page for individual spell!</h2>
       </div>
     )
   }
