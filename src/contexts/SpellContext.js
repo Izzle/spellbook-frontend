@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
+export const nullSpellbook = {
+    placeholderKey: 'placeholder value' // NOT COMPLETE OBVIOUSLY LOL
+};
 
 const SpellContext = React.createContext({
     error: null,
-    spellbooks: [],
+    spellbook: nullSpellbook, // may need to become nullSpellbook
     spells: [],
     setError: () => {},
     clearError: () => {},
-    setSpellBookList: () => {},
+    setSpellBook: () => {},
     setSpells: () => {},
     addSpell: () => {}
 });
@@ -17,7 +20,7 @@ export default SpellContext;
 export class SpellProvider extends Component {
     state = { 
         error: null,
-        spellbooks: [],
+        spellbook: nullSpellbook, // may need to become nullSpellbook
         spells: [],
       };
 
@@ -34,9 +37,9 @@ export class SpellProvider extends Component {
         });
       }
     
-      setSpellBookList = ( spellbooks ) => {
+      setSpellBook = ( spellbook ) => {
         this.setState({
-          spellbooks
+          spellbook
         });
       }
     
@@ -44,6 +47,11 @@ export class SpellProvider extends Component {
         this.setState({
           spells
         });
+      }
+
+      clearSpellbook = () => {
+          this.setSpellBook(nullSpellbook);
+          this.setSpells([]);
       }
 
       addSpell = spell => {
@@ -57,11 +65,11 @@ export class SpellProvider extends Component {
 
       render() {
         const contextValue = {
-            spellbooks: this.state.spellbooks,
+            spellbook: this.state.spellbook,
             spells: this.state.spells,
             setError: this.setError,
             clearError: this.clearError,
-            setSpellBookList: this.setSpellBookList,
+            setSpellBook: this.setSpellBook,
             setSpells: this.setSpells,
             addSpell: this.addSpell
           };
