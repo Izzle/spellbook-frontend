@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import SpellContext from '../../contexts/SpellContext';
 import SpellApiService from '../../services/spell-api-service';
 import SpellLibraryOptions from '../../components/SpellLibraryOptions/SpellLibraryOptions';
+import SpellBookButtons from '../../components/SpellBookButtons/SpellBookButtons';
 import Spell from '../../components/Spell/Spell';
 import './SpellBookPage.css';
+
 
 
 // Different might be needed ( or maybe just in SpellBookListPage)
@@ -24,6 +26,7 @@ export default class SpellBookPage extends Component {
             <section className='SpellBookPage'>
                 <div className='SpellBookPage__container'>
                 <SpellLibraryOptions />
+                <SpellBookButtons />
                 <div className='SpellBookPage__Spells__container'>
                     {spells.map((spell, idx) => {
                         return <Spell
