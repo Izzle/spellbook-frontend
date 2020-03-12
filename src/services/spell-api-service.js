@@ -1,9 +1,10 @@
 import config from '../config';
 
 const SpellApiService = {
+  // To GET all spells from /api/spells
   getAllSpells() {
       return fetch(`${config.API_ENDPOINT}/spells`, {
-          headers: {
+          headers: { // If I add an AUTH token you'd put it in the headers
           },
       })
         .then(res => {
@@ -12,7 +13,19 @@ const SpellApiService = {
                         : res.json();
         })
   },
-  getSpell(spellId) {},
+  // To GET a specific spell at /spells/:id
+  getSpellById(spellId) {
+    return fetch(`${config.API_ENDPOINT}/spells/${spellId}`, {
+      headers: {
+      },
+  })
+    .then(res => {
+        return (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json();
+    })
+  },
+  // To POST a new spell to /spells
   postSpell(newSpell) {
     return fetch(`${config.API_ENDPOINT}/spells`, {
       method: 'POST',

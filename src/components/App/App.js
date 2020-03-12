@@ -21,13 +21,21 @@ class App extends Component{
 
   state = { 
     hasError: false,
+    error: null,
     spellbooks: [],
     spells: []
   };
 
   static getDerviedStateFromError(error) {
-    console.log(error);
+    console.error(error);
     return { hasError: true };
+  }
+
+  setError = ( error ) => {
+    console.error(error);
+    this.setState({
+      error
+    });
   }
 
   setSpellBookList = ( spellbooks ) => {
@@ -37,7 +45,6 @@ class App extends Component{
   }
 
   setSpells = ( spells ) => {
-    //console.log(spells);
     this.setState({
       spells
     });

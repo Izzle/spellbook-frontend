@@ -16,7 +16,7 @@ export default class SpellLibraryPage extends Component {
 
   render() {
     const { spells = [] } = this.context;
-
+    
     return (
       <section className='SpellLibraryPage'>
         <div className='SpellLibraryPage__container'>
