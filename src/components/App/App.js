@@ -8,11 +8,14 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import ResetPasswordPage from '../../routes/ResetPasswordPage/ResetPasswordPage';
+import SpellBookListPage from '../../routes/SpellBookListPage/SpellBookListPage';
+import SpellBookPage from '../../routes/SpellBookPage/SpellBookPage';
 import SpellLibraryPage from '../../routes/SpellLibraryPage/SpellLibraryPage';
 import SpellPage from '../../routes/SpellPage/SpellPage';
 import SpellContext from '../../contexts/SpellContext';
 
 import './App.css';
+
 
 class App extends Component{
 
@@ -86,6 +89,12 @@ class App extends Component{
                 path={'/reset-password'}
                 component={ResetPasswordPage}
               />
+              <Route 
+                path={'/spellbook'}
+                component={SpellBookListPage}/>
+              <Route 
+                path={'/spellbook/:id'}
+                component={SpellBookPage}/>
               <Route 
                 path={'/spellbook-builder'}
                 component={BuildSpellBookPage}

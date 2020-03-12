@@ -10,7 +10,7 @@ export default class Nav extends Component {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/spells'>Spell Library</Link></li>
             <li><Link to='/spell-creator'>Create a Spell</Link></li>
-            <li><Link to='/spellbook-builder'>Build a Spellbook</Link></li>
+            <li><Link to='/spellbook'>View Spellbooks</Link></li>
         </ul>
     }
 }
