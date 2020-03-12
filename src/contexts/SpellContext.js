@@ -21,7 +21,7 @@ export class SpellProvider extends Component {
     state = { 
         error: null,
         spellbook: nullSpellbook, // may need to become nullSpellbook
-        spells: [],
+        spells: []
       };
 
       setError = ( error ) => {
