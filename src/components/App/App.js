@@ -12,7 +12,6 @@ import SpellBookListPage from '../../routes/SpellBookListPage/SpellBookListPage'
 import SpellBookPage from '../../routes/SpellBookPage/SpellBookPage';
 import SpellLibraryPage from '../../routes/SpellLibraryPage/SpellLibraryPage';
 import SpellPage from '../../routes/SpellPage/SpellPage';
-import SpellContext from '../../contexts/SpellContext';
 
 import './App.css';
 
@@ -20,10 +19,7 @@ import './App.css';
 class App extends Component{
 
   state = { 
-    hasError: false,
-    error: null,
-    spellbooks: [],
-    spells: []
+    hasError: false
   };
 
   static getDerviedStateFromError(error) {
@@ -31,47 +27,13 @@ class App extends Component{
     return { hasError: true };
   }
 
-  setError = ( error ) => {
-    console.error(error);
-    this.setState({
-      error
-    });
-  }
-
-  setSpellBookList = ( spellbooks ) => {
-    this.setState({
-      spellbooks
-    });
-  }
-
-  setSpells = ( spells ) => {
-    this.setState({
-      spells
-    });
-  }
-
-  addSpell = spell => {
-    // Adds a spell to state / context
-    this.setState([
-      ...this.state.spells,
-      spell
-    ]);
-  }
-
+  
   componentDidMount() {
 
   }
 
   render() {
-    const contextValue = {
-      spellbooks: this.state.spellbooks,
-      spells: this.state.spells,
-      setSpellBookList: this.setSpellBookList,
-      setSpells: this.setSpells
-    };
-
     return (
-      <SpellContext.Provider value={contextValue}>
         <div className='App'>
           <header className='App__header'>
             <Header />
@@ -125,7 +87,6 @@ class App extends Component{
             </Switch>
           </main>
         </div>
-      </SpellContext.Provider>
     );
   }
 
