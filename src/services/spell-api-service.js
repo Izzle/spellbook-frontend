@@ -9,13 +9,38 @@ const SpellApiService = {
       })
         .then(res => {
             return (!res.ok)
-                        ? res.json().then(e => Promise.reject(e))
-                        : res.json();
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json();
         })
   },
   // To GET a specific spell at /spells/:id
   getSpellById(spellId) {
     return fetch(`${config.API_ENDPOINT}/spells/${spellId}`, {
+      headers: {
+      },
+  })
+    .then(res => {
+        return (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json();
+    })
+  },
+  // To GET all spellbooks at /spellbooks
+  getAllSpellBooks() {
+    return fetch(`${config.API_ENDPOINT}/spellbooks`, {
+      headers: { // If I add an AUTH token you'd put it in the headers
+      },
+    })
+      .then(res => {
+          return (!res.ok)
+                  ? res.json().then(e => Promise.reject(e))
+                  : res.json();
+      })
+  },
+  // To GET a specific spellbook at /spellbooks/:id
+  getSpellBookById(spellbookId) {},
+  getSpellBook222222222ById(spellbookId) {
+    return fetch(`${config.API_ENDPOINT}/spellbooks/${spellbookId}`, {
       headers: {
       },
   })

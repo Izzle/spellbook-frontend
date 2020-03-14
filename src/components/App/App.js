@@ -83,7 +83,6 @@ class App extends Component{
                 component={SpellPage}
               />
               <Route 
-                path={'/page-not-found'}
                 component={NotFoundPage}
               />
             </Switch>
