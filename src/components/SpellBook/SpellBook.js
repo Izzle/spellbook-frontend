@@ -5,6 +5,7 @@ import STORE from '../../store';
 
 export default class Spellbook extends Component {
 
+    // A lot of this code can probably be deleted. Im pretty sure this isnt being used lol
     static contextType = SpellContext;
 
     componentDidMount() {
@@ -17,8 +18,8 @@ export default class Spellbook extends Component {
     
         
     render() {
-        const { spells = [] } = this.context;
-        console.log(spells);
+       // const { spells = [] } = this.context;
+        // console.log(spells);
         return (
             <div>
                 <h4>{this.props.name}</h4>

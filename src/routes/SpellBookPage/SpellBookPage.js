@@ -6,15 +6,23 @@ import SpellBookButtons from '../../components/SpellBookButtons/SpellBookButtons
 import Spell from '../../components/Spell/Spell';
 import './SpellBookPage.css';
 
-
-
-// Different might be needed ( or maybe just in SpellBookListPage)
-// NEW METHODS ARE NEEDED FOR OUR SERVICE
+// FIGURE OUT:
+// What is the difference between 'SpellBook' and 'SpellBookPage'
 export default class SpellBookPage extends Component {
+    static defaultProps = {
+        match: { params: {} }
+    };
 
     static contextType = SpellContext;
 
     componentDidMount() {
+        const { id } = this.props.match.params;
+        this.context.clearError();
+
+        SpellApiService.getSpellBookById(id)
+          .then(console.log)
+          .catch(this.context.setError);
+          //.then(this.context.setSpellzzzzzzzz)
         //SpellApiService.getSpellBook() // or .getSpellBookById ?
           //.then(this.context.setSpellsEquivalent('may setSpellBook'))
           //.catch(this.context.setError);

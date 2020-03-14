@@ -38,8 +38,7 @@ const SpellApiService = {
       })
   },
   // To GET a specific spellbook at /spellbooks/:id
-  getSpellBookById(spellbookId) {},
-  getSpellBook222222222ById(spellbookId) {
+  getSpellBookById(spellbookId) {
     return fetch(`${config.API_ENDPOINT}/spellbooks/${spellbookId}`, {
       headers: {
       },

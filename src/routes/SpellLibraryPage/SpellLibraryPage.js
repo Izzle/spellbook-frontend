@@ -6,6 +6,7 @@ import Spell from '../../components/Spell/Spell';
 import './SpellLibraryPage.css';
  
 export default class SpellLibraryPage extends Component {
+
   static contextType = SpellContext;
   
   componentDidMount() {
