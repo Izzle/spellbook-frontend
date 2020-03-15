@@ -26,6 +26,7 @@ export default class SpellBookPage extends Component {
         //SpellApiService.getSpellBook() // or .getSpellBookById ?
           //.then(this.context.setSpellsEquivalent('may setSpellBook'))
           //.catch(this.context.setError);
+          
     }
 
     render() {
