@@ -19,14 +19,10 @@ export default class SpellBookPage extends Component {
         const { id } = this.props.match.params;
         this.context.clearError();
 
-        SpellApiService.getSpellBookById(id)
-          .then(console.log)
+        // Gets the spells from DB and updates state to use that
+        SpellApiService.getAllSpellsInSpellbookById(id)
+          .then(this.context.setSpells)
           .catch(this.context.setError);
-          //.then(this.context.setSpellzzzzzzzz)
-        //SpellApiService.getSpellBook() // or .getSpellBookById ?
-          //.then(this.context.setSpellsEquivalent('may setSpellBook'))
-          //.catch(this.context.setError);
-          
     }
 
     render() {

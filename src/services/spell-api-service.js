@@ -49,6 +49,18 @@ const SpellApiService = {
                     : res.json();
     })
   },
+  // To GET all spells in a specific spellbook at /spellbooks/:id/spells
+  getAllSpellsInSpellbookById(spellbookId) {
+    return fetch(`${config.API_ENDPOINT}/spellbooks/${spellbookId}/spells`, {
+      headers: {
+      },
+  })
+    .then(res => {
+        return (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json();
+    })
+  },
   // To POST a new spell to /spells
   postSpell(newSpell) {
     return fetch(`${config.API_ENDPOINT}/spells`, {
