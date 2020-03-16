@@ -7,7 +7,7 @@ export default class Spell extends Component {
     static defaultProps = {
       onSpellClick: () => {},
     }
-    
+
     render() {
       return (
         <div onClick={() => this.props.onSpellClick(this.props.id)} className='Spell__main'>
@@ -16,7 +16,7 @@ export default class Spell extends Component {
             <p>{`Classes: ${this.props.classes} (FIX THIS: Currently using the class ID)`}</p>
             <p>{`Casting Time: ${this.props.castingTime} // Duration: ${this.props.duration} // Components: ${this.props.spellComponents}`}</p>
             <p>{`Description: ${this.props.description}`}</p>
-            
+      <h3>{this.props.spellSelected ? 'SELECTED SPELL': 'not selected :('}</h3>
             {this.props.higherLevels.length > 0 && 
               <>
                 <h5>At higher levels</h5> 

@@ -14,15 +14,15 @@ import './BuildSpellBookPage.css';
 export default class BuildSpellBookPage extends Component {
 
   state = {
-    spellsInSpellBook: []
+    spellsInSpellBook: [],
   };
   // add spells to spellsinSpellbook when componentmounts
   // function that checks if spells are in spellsInSpellBook, if they are it adds a "highlighted" class otherwise it removes it (maybe a toggle function)
-  // compare spellsInSpellBook to this.context.spells, if they match it get highlighted - if they dont they are 'unhightlighted'
+  // compare spellsInSpellBook to this.context.spells, if they match it get highlighted - if they dont they are 'unselected'
   //
   // when a spell is clicked, update the state (by removing or adding the item to the spellsInSPellBook array). 
   // this will trigger a rerender
-  // we want to check again if spells in context match spellsInSpellBook and hightlight/unhightlight again
+  // we want to check again if spells in context match spellsInSpellBook and select/unselect again
   // when "SAVE" it pressed, we do a PUT request sending our spellsinSpellBook array to update this specific SpellBook
   // then after the PUT request is successful, we go back to loading the '/spellbook/:id' endpoint which will now show all spells that are in the spellbook in the DB
   // 
@@ -65,13 +65,37 @@ export default class BuildSpellBookPage extends Component {
   //  // console.log('context.spells: ', this.context.spells);
   }
   toggleHighlightedClass = (spellbookSpells) => {
+  
+    // console.log(spellbookSpells);
 
-    // const selectedSpells = this.context.spells.map(spell => {
-    //   return spellbookSpells.filter(spellBookSpell => spellBookSpell.id === spell.id);
-    // });
+    // const selectedSpellIds = spellbookSpells.map(spell => spell.id);
+    // // each DIV has an prop ID = spellId we've selected. for each one, highlight it.
 
-    console.log(spellbookSpells);
-    
+    // this.context.spells.map(spell => {
+    //   // if spell matches any item in the selectedSpellIds array, add a property called .selected and set it to true // it not make it false
+    // })
+    // console.log(`selectedSpellIds: `, selectedSpellIds);
+    // // ADD TO CONTEXT A PROPERTY CALLED HIGHLIGHTED:
+    // // this.context.spells[index].selected = true
+    // // this.context.spells[1].highlighted = false
+    // const selected = 0;
+    // // TAKE WHATEVER IS IN STATE ,HIGHLIGHT IT
+    // // IF SOMETHING IS CLICKED, REMOVE IT FROM STATE / ADD TO STATE
+
+
+  }
+
+  isSpellSelected = (spellId) => { // change this to findSpellByID or something
+    // 4 === [{name: fireball, id: 2}, {name: frost, id: 4}]
+                        // this.state.spellsInSpellBook.find(spell => spell.id === 4)
+                        // if returns -1, set to false. otherwise set to true
+    console.log(spellId);
+    const result = this.state.spellsInSpellBook.filter(spell => {
+      //console.log(spell.id);
+      return spell.id === spellId;
+    });
+    console.log(result);
+    return result.length > 0 ? true : false;
   }
   handleSpellClick = spellId => {
    // ev.preventDefault();
@@ -85,7 +109,7 @@ export default class BuildSpellBookPage extends Component {
     // spells: [1, 2] spellsinSpellBook: [1, 4, 6, 8]
     // WHEN CLICKED:
     // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
-    // if no, add spell to spellsinSpellbook (if a spell is not hightlighted and clicked, add it to the spellbook and highlight it)
+    // if no, add spell to spellsinSpellbook (if a spell is not selected and clicked, add it to the spellbook and highlight it)
     // should be ADD or REMOVE spell from spellbook
     this.matchSpellsById(this.state.spellsInSpellBook);
   }
@@ -97,8 +121,7 @@ export default class BuildSpellBookPage extends Component {
 
   render() {
     const { spells = [] } = this.context;
-    this.toggleHighlightedClass(this.state.spellsInSpellBook);
-    
+
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
@@ -114,6 +137,7 @@ export default class BuildSpellBookPage extends Component {
           </p>
           <div className='BuildSpellBookPage__Spells__container'>
           {spells.map((spell, idx) => {
+                      const selectedValue = this.isSpellSelected(spell.id);
                         return <Spell
                         key={idx}
                         id={spell.id}
@@ -128,6 +152,11 @@ export default class BuildSpellBookPage extends Component {
                         description={spell.spell_description}
                         higherLevels={spell.higher_levels}
                         onSpellClick={this.handleSpellClick}
+                        spellSelected={selectedValue}
+                        // // 4 === [{name: fireball, id: 2}, {name: frost, id: 4}]
+                        // // this.state.spellsInSpellBook.find(spell => spell.id === 4)
+                        // // if returns -1, set to false. otherwise set to true
+                        // hl={spell.id === this.state.spellsInSpellBook[spell.id] ? true : false}
                         />
                     })}
           </div>
