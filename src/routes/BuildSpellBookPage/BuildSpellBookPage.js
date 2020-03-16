@@ -6,6 +6,11 @@ import SpellApiService from '../../services/spell-api-service';
 import Spell from '../../components/Spell/Spell';
 import './BuildSpellBookPage.css';
 
+// GET contextSpells
+// GET mySpellsinSpellBook <- for speicific id
+// compare them to see which contextSpells match mySPellIsSpellbook
+
+
 export default class BuildSpellBookPage extends Component {
 
   state = {
@@ -33,21 +38,47 @@ export default class BuildSpellBookPage extends Component {
        .catch(this.context.setError);
       // Find which ones are already in the deck
     const { id } = this.props.match.params;
+    //     console.log(id);
     SpellApiService.getAllSpellsInSpellbookById(id)
-      .then(console.log)
+      .then(console.log)  // <------------------------------------ should have a function here that compared the IDs and changes state
+                                                                 // OR just a function that sets state originally. compare later?
       .catch(this.context.setError);
       // highlight those spells / add to array of spellIdsInDeck
 
       // THEN (outside of component did mount, probably in event handler)
       // when a spell is clicked, it will remove it from an array "spellIdsInDeck" or w/e
     
-    console.log(id);
-    // some service here
+      // ISSUE: What do I put in componentDidMount? WHat do I leave out?
+  }
+
+  setSpellsInSpellBook = ( spellsInSpellBook ) => {
+    this.setState({ spellsInSpellBook });
+  }
+
+  matchSpellsById = ( spellsInSpellBook ) => {
+    // return matchedSpells
+    // compare spellsInSpellBook to context.spells
+    // const matchedSpells = this.context.spells.filter(spell => spell.id === spellsInSpellBook.id);
+
+    // TEMP
+    spellsInSpellBook = [1, 2, 3];
+    const matchedSpells = [];
+    for (const spellbookSpell of spellsInSpellBook) {
+      const result = this.context.spells.filter(contextSpell => contextSpell.id !== spellbookSpell.id);
+      matchedSpells.push(result);
+    }
+    console.log(matchedSpells);
+   // console.log('context.spells: ', this.context.spells);
   }
 
   handleSpellClick = spellId => {
    // ev.preventDefault();
-    console.log(spellId);
+    console.log(`spellId`, spellId);
+    // SHOULD USE THE SPELLID to FIND THE spellsInSPellbookById and pass that ? (or state?)
+
+    //TEMP TEST SIUTATION
+    this.setSpellsInSpellBook(spellId); // this SHOULD be ALL spellsInSpellBook, not just ONE spell.
+    this.matchSpellsById(this.state.spellsInSpellBook);
     // we want to get the value of the spellId when clicked
     // Also, I DONT want this to trigger on the "SpellLibrary" page...
   }

@@ -107,6 +107,7 @@ export default class CreateSpellPage extends Component {
 
     SpellApiService.postSpell(newSpell)
     .then(this.context.addSpell) // change page after this
+    .then(() => this.props.history.push('/spells'))
     .catch(this.context.setError);
   }
   
