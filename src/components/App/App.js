@@ -67,7 +67,7 @@ class App extends Component{
                 path={'/spellbook/:id'}
                 component={SpellBookPage}/>
               <Route 
-                path={'/spellbook/:id/edit'} // I know its not very RESTful, but it works for now
+                path={'/spellbook/:id/build'} // I know its not very RESTful, but it works for now
                 component={BuildSpellBookPage}
               />
               <Route 

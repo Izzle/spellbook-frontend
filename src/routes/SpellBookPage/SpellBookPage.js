@@ -23,7 +23,6 @@ export default class SpellBookPage extends Component {
     }
 
     render() {
-        console.log(this.props.match.params);
         const { spells = [] } = this.context;
         return (
             <section className='SpellBookPage'>

@@ -10,7 +10,7 @@ export default class SpellBookButtons extends Component {
 
     render() {
         return(<div>
-            <Link to={`/spellbook/${this.props.id}/edit`} className='SpellBookButtons__Link'>
+            <Link to={`/spellbook/${this.props.id}/build`} className='SpellBookButtons__Link'>
                 <button className='SpellBookButtons__button'>Customize your Spellbook (or Edit. Or build. Pick your verb)</button>
             </Link>
             <Link to='/spellbook' className='SpellBookButtons__Link'>
