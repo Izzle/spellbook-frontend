@@ -4,3 +4,7 @@
     border: 1px solid black;
     margin-right: 10px;
 }
+
+.Spell__selected {
+    background-color: yellow;
+}
