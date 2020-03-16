@@ -94,7 +94,7 @@ export default class BuildSpellBookPage extends Component {
 
     return result.length > 0 ? true : false;
   }
-  
+
   handleSpellClick = spellId => {
    // ev.preventDefault();
     console.log(`spellId`, spellId);
@@ -102,14 +102,16 @@ export default class BuildSpellBookPage extends Component {
     // SHOULD USE THE SPELLID to FIND THE spellsInSPellbookById and pass that ? (or state?)
 
     //TEMP TEST SIUTATION
-   // every page render: run a function to highlight the spells that are in the spellbook
+   // every page render: run a function to highlight the spells that are in the spellbook DONE
     // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
     // spells: [1, 2] spellsinSpellBook: [1, 4, 6, 8]
     // WHEN CLICKED:
     // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
     // if no, add spell to spellsinSpellbook (if a spell is not selected and clicked, add it to the spellbook and highlight it)
     // should be ADD or REMOVE spell from spellbook
-    this.matchSpellsById(this.state.spellsInSpellBook);
+    console.log(this.isSpellSelected(spellId) ? 'yes': 'no');
+
+    //this.matchSpellsById(this.state.spellsInSpellBook);
   }
 
   handleSaveSubmit = () => {
