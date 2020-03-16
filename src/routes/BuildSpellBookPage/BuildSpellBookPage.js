@@ -49,21 +49,28 @@ export default class BuildSpellBookPage extends Component {
   }
 
   matchSpellsById = ( spellsInSpellBook ) => {
-    // return matchedSpells
-    // compare spellsInSpellBook to context.spells
-    // const matchedSpells = this.context.spells.filter(spell => spell.id === spellsInSpellBook.id);
 
-    // TEMP
-    spellsInSpellBook = [1, 2, 3];
-    const matchedSpells = [];
-    for (const spellbookSpell of spellsInSpellBook) {
-      const result = this.context.spells.filter(contextSpell => contextSpell.id !== spellbookSpell.id);
-      matchedSpells.push(result);
-    }
-    //console.log(matchedSpells);
-   // console.log('context.spells: ', this.context.spells);
+  //   // return matchedSpells
+  //   // compare spellsInSpellBook to context.spells
+  //   // const matchedSpells = this.context.spells.filter(spell => spell.id === spellsInSpellBook.id);
+
+  //   // TEMP
+  //   spellsInSpellBook = [1, 2, 3];
+  //   const matchedSpells = [];
+  //   for (const spellbookSpell of spellsInSpellBook) {
+  //     const result = this.context.spells.filter(contextSpell => contextSpell.id !== spellbookSpell.id);
+  //     matchedSpells.push(result);
+  //   }
+  //   //console.log(matchedSpells);
+  //  // console.log('context.spells: ', this.context.spells);
   }
-  toggleHighlightedClass = () => {
+  toggleHighlightedClass = (spellbookSpells) => {
+
+    // const selectedSpells = this.context.spells.map(spell => {
+    //   return spellbookSpells.filter(spellBookSpell => spellBookSpell.id === spell.id);
+    // });
+
+    console.log(spellbookSpells);
     
   }
   handleSpellClick = spellId => {
@@ -90,12 +97,13 @@ export default class BuildSpellBookPage extends Component {
 
   render() {
     const { spells = [] } = this.context;
-    const { id } = this.props.match.params;
+    this.toggleHighlightedClass(this.state.spellsInSpellBook);
+    
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
           <SpellLibraryOptions />
-          <BuildSpellBookButtons onSaveSubmit={this.handleSaveSubmit} paramsId={id}/>
+          <BuildSpellBookButtons onSaveSubmit={this.handleSaveSubmit}/>
           <h2>Edit and build your deck here</h2>
           <p>What do we need to do?
             We need the buttons to SAVE DECK and a placeholder that looks like a button
