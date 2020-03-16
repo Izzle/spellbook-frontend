@@ -4,26 +4,14 @@ import './BuildSpellBookButtons.css';
 
 export default class BuildSpellBookButtons extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.goBack = this.goBack.bind(this);
-    // }
 
-    // goBack() {
-    //     this.props.history.goBack();
-    // }
-
-    handleSaveButton = (what) => {
-        //event.preventDefault();
-        console.log('yep you clicked a button');
-        // PROBABLY SHOULD USE "onSaveSubmit from the parent component!"
-       // console.log(this.props.history.goBack()); //undefined
-    }
+    // need to the eventHnadler to work and THEN we route to another page.
+    // after the service sends the new PUT request, chain a .then(this.props.history.push(`/spellbooks/${paramsId}`))
+    // <Link onClick={() => this.props.onSaveSubmit} to={`/spellbook/${this.props.paramsId}`} className='BuildSpellBookButtons__Link'>
     render() {
         return(<div>
-            <Link to={this.handleSaveButton} className='BuildSpellBookButtons__Link'>
-                <button type='submit' className='BuildSpellBookButtons__button'>SAVE SPELLBOOK(not changing pages current. worry about it POSTIng first)</button>
-            </Link>
+                <button onClick={() => this.props.onSaveSubmit()} type='submit' className='BuildSpellBookButtons__button'>SAVE SPELLBOOK(not changing pages current. worry about it POSTIng first)</button>
+            
             <Link to='/spellbook' className='BuildSpellBookButtons__Link'>
                 <button className='BuildSpellBookButtons__button'>This shouldnt do anything but look pretty.</button>
             </Link>

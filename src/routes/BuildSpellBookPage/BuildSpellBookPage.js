@@ -38,17 +38,10 @@ export default class BuildSpellBookPage extends Component {
        .catch(this.context.setError);
       // Find which ones are already in the deck
     const { id } = this.props.match.params;
-    //     console.log(id);
     SpellApiService.getAllSpellsInSpellbookById(id)
-      .then(console.log)  // <------------------------------------ should have a function here that compared the IDs and changes state
-                                                                 // OR just a function that sets state originally. compare later?
+      .then(this.setSpellsInSpellBook)  // <-// OR just a function that sets state originally. compare later?
       .catch(this.context.setError);
       // highlight those spells / add to array of spellIdsInDeck
-
-      // THEN (outside of component did mount, probably in event handler)
-      // when a spell is clicked, it will remove it from an array "spellIdsInDeck" or w/e
-    
-      // ISSUE: What do I put in componentDidMount? WHat do I leave out?
   }
 
   setSpellsInSpellBook = ( spellsInSpellBook ) => {
@@ -67,34 +60,42 @@ export default class BuildSpellBookPage extends Component {
       const result = this.context.spells.filter(contextSpell => contextSpell.id !== spellbookSpell.id);
       matchedSpells.push(result);
     }
-    console.log(matchedSpells);
+    //console.log(matchedSpells);
    // console.log('context.spells: ', this.context.spells);
   }
-
+  toggleHighlightedClass = () => {
+    
+  }
   handleSpellClick = spellId => {
    // ev.preventDefault();
     console.log(`spellId`, spellId);
+    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     // SHOULD USE THE SPELLID to FIND THE spellsInSPellbookById and pass that ? (or state?)
 
     //TEMP TEST SIUTATION
-    this.setSpellsInSpellBook(spellId); // this SHOULD be ALL spellsInSpellBook, not just ONE spell.
+   // every page render: run a function to highlight the spells that are in the spellbook
+    // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
+    // spells: [1, 2] spellsinSpellBook: [1, 4, 6, 8]
+    // WHEN CLICKED:
+    // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
+    // if no, add spell to spellsinSpellbook (if a spell is not hightlighted and clicked, add it to the spellbook and highlight it)
+    // should be ADD or REMOVE spell from spellbook
     this.matchSpellsById(this.state.spellsInSpellBook);
-    // we want to get the value of the spellId when clicked
-    // Also, I DONT want this to trigger on the "SpellLibrary" page...
   }
 
-  handleSaveSubmit = ev => {
-    ev.preventDefault();
+  handleSaveSubmit = () => {
+    //ev.preventDefault();
     console.log('save button submit');
   }
 
   render() {
     const { spells = [] } = this.context;
+    const { id } = this.props.match.params;
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
           <SpellLibraryOptions />
-          <BuildSpellBookButtons onSaveSubmit={this.handleSaveSubmit}/>
+          <BuildSpellBookButtons onSaveSubmit={this.handleSaveSubmit} paramsId={id}/>
           <h2>Edit and build your deck here</h2>
           <p>What do we need to do?
             We need the buttons to SAVE DECK and a placeholder that looks like a button
