@@ -106,7 +106,7 @@ export default class CreateSpellPage extends Component {
     };
 
     SpellApiService.postSpell(newSpell)
-    .then(this.context.addSpell)
+    .then(this.context.addSpell) // change page after this
     .catch(this.context.setError);
   }
   

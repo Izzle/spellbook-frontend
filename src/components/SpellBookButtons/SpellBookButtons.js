@@ -4,9 +4,13 @@ import './SpellBookButtons.css';
 
 export default class SpellBookButtons extends Component {
 
+    // if I had more time I would do a Higher Order Component and / or conditional rendering to
+    // merge SpellBookButtons with SpellBookLink. Right now its more important that it just works,
+    // I'll worry about technical debt later
+
     render() {
         return(<div>
-            <Link to='/spellbook-builder' className='SpellBookButtons__Link'>
+            <Link to={`/spellbook/${this.props.id}/edit`} className='SpellBookButtons__Link'>
                 <button className='SpellBookButtons__button'>Customize your Spellbook (or Edit. Or build. Pick your verb)</button>
             </Link>
             <Link to='/spellbook' className='SpellBookButtons__Link'>

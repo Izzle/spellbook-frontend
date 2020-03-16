@@ -23,12 +23,13 @@ export default class SpellBookPage extends Component {
     }
 
     render() {
+        console.log(this.props.match.params);
         const { spells = [] } = this.context;
         return (
             <section className='SpellBookPage'>
                 <div className='SpellBookPage__container'>
                 <SpellLibraryOptions />
-                <SpellBookButtons />
+                <SpellBookButtons id={this.props.match.params.id}/>
                 <div className='SpellBookPage__Spells__container'>
                     {spells.map((spell, idx) => {
                         return <Spell
