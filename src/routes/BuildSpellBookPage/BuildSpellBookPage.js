@@ -85,18 +85,16 @@ export default class BuildSpellBookPage extends Component {
 
   }
 
-  isSpellSelected = (spellId) => { // change this to findSpellByID or something
-    // 4 === [{name: fireball, id: 2}, {name: frost, id: 4}]
-                        // this.state.spellsInSpellBook.find(spell => spell.id === 4)
-                        // if returns -1, set to false. otherwise set to true
-    console.log(spellId);
+  isSpellSelected = (spellId) => {
+    // This function will take in the spellId and will determine if that spell
+    // is in the state version of the spellbook. If it is it will return true, if not it returns false.
     const result = this.state.spellsInSpellBook.filter(spell => {
-      //console.log(spell.id);
       return spell.id === spellId;
     });
-    console.log(result);
+
     return result.length > 0 ? true : false;
   }
+  
   handleSpellClick = spellId => {
    // ev.preventDefault();
     console.log(`spellId`, spellId);
@@ -153,10 +151,6 @@ export default class BuildSpellBookPage extends Component {
                         higherLevels={spell.higher_levels}
                         onSpellClick={this.handleSpellClick}
                         spellSelected={selectedValue}
-                        // // 4 === [{name: fireball, id: 2}, {name: frost, id: 4}]
-                        // // this.state.spellsInSpellBook.find(spell => spell.id === 4)
-                        // // if returns -1, set to false. otherwise set to true
-                        // hl={spell.id === this.state.spellsInSpellBook[spell.id] ? true : false}
                         />
                     })}
           </div>
