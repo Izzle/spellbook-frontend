@@ -6,7 +6,7 @@ export const nullSpellbook = {
 
 const SpellContext = React.createContext({
     error: null,
-    spellbook: nullSpellbook, // may need to become nullSpellbook
+    spellbook: nullSpellbook, 
     spells: [],
     setError: () => {},
     clearError: () => {},
@@ -20,7 +20,7 @@ export default SpellContext;
 export class SpellProvider extends Component {
     state = { 
         error: null,
-        spellbook: nullSpellbook, // may need to become nullSpellbook
+        spellbook: nullSpellbook,
         spells: []
       };
 

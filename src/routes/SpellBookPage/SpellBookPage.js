@@ -6,8 +6,6 @@ import SpellBookButtons from '../../components/SpellBookButtons/SpellBookButtons
 import Spell from '../../components/Spell/Spell';
 import './SpellBookPage.css';
 
-// FIGURE OUT:
-// What is the difference between 'SpellBook' and 'SpellBookPage'
 export default class SpellBookPage extends Component {
     static defaultProps = {
         match: { params: {} }
@@ -18,7 +16,6 @@ export default class SpellBookPage extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
         this.context.clearError();
-
         // Gets the spells from DB and updates state to use that
         SpellApiService.getAllSpellsInSpellbookById(id)
           .then(this.context.setSpells)
