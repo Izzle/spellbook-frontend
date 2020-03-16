@@ -8,6 +8,22 @@ import './BuildSpellBookPage.css';
 
 export default class BuildSpellBookPage extends Component {
 
+  state = {
+    spellsInSpellBook: []
+  };
+  // add spells to spellsinSpellbook when componentmounts
+  // function that checks if spells are in spellsInSpellBook, if they are it adds a "highlighted" class otherwise it removes it (maybe a toggle function)
+  // compare spellsInSpellBook to this.context.spells, if they match it get highlighted - if they dont they are 'unhightlighted'
+  //
+  // when a spell is clicked, update the state (by removing or adding the item to the spellsInSPellBook array). 
+  // this will trigger a rerender
+  // we want to check again if spells in context match spellsInSpellBook and hightlight/unhightlight again
+  // when "SAVE" it pressed, we do a PUT request sending our spellsinSpellBook array to update this specific SpellBook
+  // then after the PUT request is successful, we go back to loading the '/spellbook/:id' endpoint which will now show all spells that are in the spellbook in the DB
+  // 
+  // We need to get the spellsInTheSPellbookbyId to set the state initially, but afterwards to keep using the value from state (the array spellsInSPellBook)
+  // however whenever the page first loads, we want to get teh data from the getAllSpellsInSpellbookById service the first time again.
+
   static contextType = SpellContext;
 
   componentDidMount() {
@@ -29,8 +45,11 @@ export default class BuildSpellBookPage extends Component {
     // some service here
   }
 
-  handleSpellClicked = ev => {
-    
+  handleSpellClick = spellId => {
+   // ev.preventDefault();
+    console.log(spellId);
+    // we want to get the value of the spellId when clicked
+    // Also, I DONT want this to trigger on the "SpellLibrary" page...
   }
 
   handleSaveSubmit = ev => {
@@ -68,6 +87,7 @@ export default class BuildSpellBookPage extends Component {
                         duration={spell.spell_duration}
                         description={spell.spell_description}
                         higherLevels={spell.higher_levels}
+                        onSpellClick={this.handleSpellClick}
                         />
                     })}
           </div>

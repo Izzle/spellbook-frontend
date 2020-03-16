@@ -2,8 +2,11 @@ import React from 'react';
 import './Spell.css';
 
 export default function Spell(props) {
+  // can I use conditional rendering?
+  // this is breaking SpellLibraryPage because there is no function for that one.
+
     return (
-      <div className='Spell__main'>
+      <div onClick={() => props.onSpellClick(props.id)} className='Spell__main'>
           <h4>{props.name}</h4>
           <p>{`Level: ${props.level === 0 ? 'Cantrip': props.level} // School: ${props.school} // Range: ${props.range}`}</p>
           <p>{`Classes: ${props.classes} (FIX THIS: Currently using the class ID)`}</p>
