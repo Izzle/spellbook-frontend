@@ -28,7 +28,7 @@ const SpellApiService = {
   // To GET all spellbooks at /spellbooks
   getAllSpellBooks() {
     return fetch(`${config.API_ENDPOINT}/spellbooks`, {
-      headers: { // If I add an AUTH token you'd put it in the headers
+      headers: { 
       },
     })
       .then(res => {

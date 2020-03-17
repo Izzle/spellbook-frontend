@@ -11,7 +11,6 @@ import ResetPasswordPage from '../../routes/ResetPasswordPage/ResetPasswordPage'
 import SpellBookListPage from '../../routes/SpellBookListPage/SpellBookListPage';
 import SpellBookPage from '../../routes/SpellBookPage/SpellBookPage';
 import SpellLibraryPage from '../../routes/SpellLibraryPage/SpellLibraryPage';
-import SpellPage from '../../routes/SpellPage/SpellPage';
 
 import './App.css';
 
@@ -79,10 +78,10 @@ class App extends Component{
                 path={'/spells'}
                 component={SpellLibraryPage}
               />
-              <Route 
+              {/* <Route               // this endpoint is to be used in a future feature
                 path={'/spells/:id'}
                 component={SpellPage}
-              />
+              /> */}
               <Route 
                 component={NotFoundPage}
               />
