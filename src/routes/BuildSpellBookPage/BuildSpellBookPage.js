@@ -88,9 +88,8 @@ export default class BuildSpellBookPage extends Component {
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
     const clickedSpell = this.findSpellById(spellId);
-    // console.log('remove from state') 
+
     this.isSpellSelected(spellId) ? this.removeSpellFromState(spellIdx) : this.addSpellToState(clickedSpell);
-    //console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
@@ -99,6 +98,13 @@ export default class BuildSpellBookPage extends Component {
     console.log('save button submit');
   }
 
+  // MY CODE IS BUGGED, WHY??
+  // is it a setState issue? Where I have 2 different thinks that are updating state in the same point before a render?
+  // is it a logical issue?
+  // is it an async issue (like something missinga  return?)
+  // is it a React Life Cycle issue? 
+  // If I change removeSpellFromState from 'spell index' to 'spell id' it has no effect
+  //  note: adding spells seems to work fine, but when you start removing it gets weird
   render() {
     const { spells = [] } = this.context;
     console.log('spellsInSpellbook', this.state.spellsInSpellBook);
