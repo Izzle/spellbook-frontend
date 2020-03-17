@@ -103,7 +103,8 @@ export default class BuildSpellBookPage extends Component {
     return result.length > 0 ? true : false;
   }
   addSpellToState = spell => {
-    let newSpells = this.state.spellsInSpellBook.push(spell);
+    // state is immutable, so we can't do a .push here. We can concat and then put it in this way though
+    let newSpells = this.state.spellsInSpellBook.concat(spell);
     this.setState({
       spellsInSpellBook: newSpells
     })
