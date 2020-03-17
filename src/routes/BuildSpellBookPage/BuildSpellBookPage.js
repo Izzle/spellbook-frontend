@@ -92,14 +92,17 @@ export default class BuildSpellBookPage extends Component {
     });
   }
 
-  isSpellSelected = (spellId) => {
+  isSpellSelected = (spellId) => { // <----------- pretty sure the issue is with this function? Maybe its the .filter? Issues occur when you click the same thing twice
     // This function will take in the spellId and will determine if that spell
     // is in the state version of the spellbook. If it is it will return true, if not it returns false.
     //const result = this.findSpellInSpellBook(spellId);
+
+
     const result = this.state.spellsInSpellBook.filter(spell => {
       return spell.id === spellId;
     });
 
+    console.log(result);
     return result.length > 0 ? true : false;
   }
   addSpellToState = spell => {
@@ -117,18 +120,6 @@ export default class BuildSpellBookPage extends Component {
     });
   }
   handleSpellClick = (spellId, spellIdx) => {
-   // ev.preventDefault();
-    //console.log(`spellId`, spellId);
-   // console.log(`spell index :`, spellIdx);
-
-   // every page render: run a function to highlight the spells that are in the spellbook DONE
-    // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
-    // spells: [1, 2] spellsinSpellBook: [1, 4, 6, 8]
-    // WHEN CLICKED:
-    // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
-    // if no, add spell to spellsinSpellbook (if a spell is not selected and clicked, add it to the spellbook and highlight it)
-    // should be ADD or REMOVE spell from spellbook
-    
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
     const clickedSpell = this.findSpellById(spellId);
