@@ -43,6 +43,10 @@ export default class BuildSpellBookPage extends Component {
       .catch(this.context.setError);
   }
 
+  componentDidUpdate() {
+    // is this needed?
+  }
+
   setSpellsInSpellBook = ( spellsInSpellBook ) => {
     this.setState({ spellsInSpellBook });
   }
