@@ -104,18 +104,22 @@ export default class BuildSpellBookPage extends Component {
   }
   addSpellToState = spell => {
     // state is immutable, so we can't do a .push here. We can concat and then put it in this way though
-    let newSpells = this.state.spellsInSpellBook.concat(spell);
+    // let newSpells = this.state.spellsInSpellBook.concat(spell);
     this.setState({
-      spellsInSpellBook: newSpells
-    })
+      spellsInSpellBook: [...this.state.spellsInSpellBook, spell]
+    });
   }
-  removeSpellFromState = spell => {
-
+  removeSpellFromState = idx => {
+    let newSpellsArray = [...this.state.spellsInSpellBook]; // make a separate copy of the array
+    newSpellsArray.splice(idx, 1); // removes the specificed element at the index
+    this.setState({
+      spellsInSpellBook: [...newSpellsArray]
+    });
   }
-  handleSpellClick = spellId => {
+  handleSpellClick = (spellId, spellIdx) => {
    // ev.preventDefault();
-    console.log(`spellId`, spellId);
-    
+    //console.log(`spellId`, spellId);
+   // console.log(`spell index :`, spellIdx);
 
    // every page render: run a function to highlight the spells that are in the spellbook DONE
     // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
@@ -128,9 +132,9 @@ export default class BuildSpellBookPage extends Component {
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
     const clickedSpell = this.findSpellById(spellId);
-    // this.addSpellToState(clickedSpell)
-    this.isSpellSelected(spellId) ? console.log('remove from state') : this.addSpellToState(clickedSpell);
-    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
+    // console.log('remove from state') 
+    this.isSpellSelected(spellId) ? this.removeSpellFromState(spellIdx) : this.addSpellToState(clickedSpell);
+    //console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
@@ -141,7 +145,7 @@ export default class BuildSpellBookPage extends Component {
 
   render() {
     const { spells = [] } = this.context;
-
+    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
@@ -160,7 +164,8 @@ export default class BuildSpellBookPage extends Component {
                       const selectedValue = this.isSpellSelected(spell.id);
                         return <Spell
                         key={idx}
-                        id={spell.id}
+                        idx={idx} // index of the element in the array
+                        id={spell.id} // ID of the spell
                         name={spell.spell_name}
                         classes={spell.spell_classes /* This doesnt exist like this anymore, I had to make a table to JOIN tables called class_spells */}
                         level={spell.spell_level}

@@ -6,13 +6,15 @@ export default class Spell extends Component {
   // this is breaking SpellLibraryPage because there is no function for that one.
     static defaultProps = {
       onSpellClick: () => {},
-      spellSelected: null
+      spellSelected: null,
+      id: null,
+      idx: null
     }
 
 
     render() {
       return (
-        <div onClick={() => this.props.onSpellClick(this.props.id)} className={this.props.spellSelected ? `Spell__main Spell__selected` : 'Spell__main'}>
+        <div onClick={() => this.props.onSpellClick(this.props.id, this.props.idx)} className={this.props.spellSelected ? `Spell__main Spell__selected` : 'Spell__main'}>
             <h4>{this.props.name}</h4>
             <p>{`Level: ${this.props.level === 0 ? 'Cantrip': this.props.level} // School: ${this.props.school} // Range: ${this.props.range}`}</p>
             <p>{`Classes: ${this.props.classes} (FIX THIS: Currently using the class ID)`}</p>
