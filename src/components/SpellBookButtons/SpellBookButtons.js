@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import SpellBookListContext from '../../contexts/SpellBookListContext';
 import './SpellBookButtons.css';
 
 export default function SpellBookButtons(props){
@@ -10,10 +11,10 @@ export default function SpellBookButtons(props){
 
     return(<div>
         <Link to={`/spellbook/${props.id}/build`} className='SpellBookButtons__Link'>
-            <button className='SpellBookButtons__button'>Customize your Spellbook (or Edit. Or build. Pick your verb)</button>
+            <button className='SpellBookButtons__button'>Edit Spellbook</button>
         </Link>
         <Link to='/spellbook' className='SpellBookButtons__Link'>
-            <button className='SpellBookButtons__button'>This button should tell you the name of the Spellbook you're in. Also, it will take you back to 'View Spellbook' page at /spellbook</button>
+            <button className='SpellBookButtons__button'>FIX: SPELLBOOK NAME</button>
         </Link>
     </div>);
 }

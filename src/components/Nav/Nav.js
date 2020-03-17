@@ -6,6 +6,7 @@ export default class Nav extends Component {
 
     render() {
         // The Nav should render as a Hamburge icon on mobile and show the items on a larger screen
+        // use conditional rendering
         return <ul className='Nav__list'>
             <li><Link to='/' className='Nav__Link'>Home</Link></li>
             <li><Link to='/spells' className='Nav__Link'>Spell Library</Link></li>
