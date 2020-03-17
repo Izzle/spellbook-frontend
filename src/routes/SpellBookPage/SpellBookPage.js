@@ -7,8 +7,18 @@ import Spell from '../../components/Spell/Spell';
 import './SpellBookPage.css';
 
 export default class SpellBookPage extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            spellbook_name: 'Spellbook' // passed from SpellBookLink
+        };
+    }
+
     static defaultProps = {
-        match: { params: {} }
+        match: { params: {} },
+        location: { state: ''}
     };
 
     static contextType = SpellContext;
@@ -20,6 +30,9 @@ export default class SpellBookPage extends Component {
         SpellApiService.getAllSpellsInSpellbookById(id)
           .then(this.context.setSpells)
           .catch(this.context.setError);
+
+        const { spellbook_name } = this.props.location.state;
+        this.setState({spellbook_name});
     }
 
     render() {
@@ -27,6 +40,7 @@ export default class SpellBookPage extends Component {
         return (
             <section className='SpellBookPage'>
                 <div className='SpellBookPage__container'>
+                <h2>{this.state.spellbook_name}</h2>
                 <SpellLibraryOptions />
                 <SpellBookButtons id={this.props.match.params.id}/>
                 <div className='SpellBookPage__Spells__container'>
