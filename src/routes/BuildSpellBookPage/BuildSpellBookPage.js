@@ -43,10 +43,6 @@ export default class BuildSpellBookPage extends Component {
       .catch(this.context.setError);
   }
 
-  componentDidUpdate() {
-    // is this needed?
-  }
-
   setSpellsInSpellBook = ( spellsInSpellBook ) => {
     this.setState({ spellsInSpellBook });
   }
@@ -82,11 +78,10 @@ export default class BuildSpellBookPage extends Component {
     });
   }
 
-  handleSpellClick = (spellId, spellIdx) => { // dont need spellIdx
+  handleSpellClick = (spellId) => {
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
     const clickedSpell = this.findSpellById(spellId);
-    console.log(this.isSpellSelected(spellId));
     this.isSpellSelected(spellId) ? this.removeSpellFromState(spellId) : this.addSpellToState(clickedSpell);
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
@@ -98,7 +93,6 @@ export default class BuildSpellBookPage extends Component {
 
   render() {
     const { spells = [] } = this.context;
-    //console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
