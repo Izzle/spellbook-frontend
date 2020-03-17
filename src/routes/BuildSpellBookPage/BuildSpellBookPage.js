@@ -85,12 +85,15 @@ export default class BuildSpellBookPage extends Component {
 
   }
 
+  findSpellById = (id) => {
+    return this.state.spellsInSpellBook.filter(spell => {
+      return spell.id === id;
+    });
+  }
   isSpellSelected = (spellId) => {
     // This function will take in the spellId and will determine if that spell
     // is in the state version of the spellbook. If it is it will return true, if not it returns false.
-    const result = this.state.spellsInSpellBook.filter(spell => {
-      return spell.id === spellId;
-    });
+    const result = this.findSpellById(spellId);
 
     return result.length > 0 ? true : false;
   }
@@ -99,9 +102,7 @@ export default class BuildSpellBookPage extends Component {
    // ev.preventDefault();
     console.log(`spellId`, spellId);
     console.log('spellsInSpellbook', this.state.spellsInSpellBook);
-    // SHOULD USE THE SPELLID to FIND THE spellsInSPellbookById and pass that ? (or state?)
 
-    //TEMP TEST SIUTATION
    // every page render: run a function to highlight the spells that are in the spellbook DONE
     // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
     // spells: [1, 2] spellsinSpellBook: [1, 4, 6, 8]
@@ -109,9 +110,9 @@ export default class BuildSpellBookPage extends Component {
     // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
     // if no, add spell to spellsinSpellbook (if a spell is not selected and clicked, add it to the spellbook and highlight it)
     // should be ADD or REMOVE spell from spellbook
-    console.log(this.isSpellSelected(spellId) ? 'yes': 'no');
+    this.isSpellSelected(spellId) ? console.log('remove from state') : console.log('add to state');
 
-    //this.matchSpellsById(this.state.spellsInSpellBook);
+    // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
   handleSaveSubmit = () => {
