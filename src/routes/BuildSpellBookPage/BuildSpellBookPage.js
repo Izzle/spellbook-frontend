@@ -58,7 +58,7 @@ export default class BuildSpellBookPage extends Component {
     });
   }
 
-  isSpellSelected = (spellId) => { // <----------- pretty sure the issue is with this function? Maybe its the .filter? Issues occur when you click the same thing twice
+  isSpellSelected = (spellId) => { 
     // This function will take in the spellId and will determine if that spell
     // is in the state version of the spellbook. If it is it will return true, if not it returns false.
 
@@ -69,27 +69,25 @@ export default class BuildSpellBookPage extends Component {
   }
 
   addSpellToState = spell => {
-    // state is immutable, so we can't do a .push here. We can concat and then put it in this way though
-    // let newSpells = this.state.spellsInSpellBook.concat(spell);
     this.setState({
       spellsInSpellBook: [...this.state.spellsInSpellBook, spell]
     });
   }
 
-  removeSpellFromState = idx => {
+  removeSpellFromState = id => {
     let newSpellsArray = [...this.state.spellsInSpellBook]; // make a separate copy of the array
-    newSpellsArray.splice(idx, 1); // removes the specificed element at the index
+    newSpellsArray = newSpellsArray.filter(spell => spell.id !== id);// removes the specificed element at the index
     this.setState({
       spellsInSpellBook: [...newSpellsArray]
     });
   }
 
-  handleSpellClick = (spellId, spellIdx) => {
+  handleSpellClick = (spellId, spellIdx) => { // dont need spellIdx
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
     const clickedSpell = this.findSpellById(spellId);
-
-    this.isSpellSelected(spellId) ? this.removeSpellFromState(spellIdx) : this.addSpellToState(clickedSpell);
+    console.log(this.isSpellSelected(spellId));
+    this.isSpellSelected(spellId) ? this.removeSpellFromState(spellId) : this.addSpellToState(clickedSpell);
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
@@ -98,16 +96,9 @@ export default class BuildSpellBookPage extends Component {
     console.log('save button submit');
   }
 
-  // MY CODE IS BUGGED, WHY??
-  // is it a setState issue? Where I have 2 different thinks that are updating state in the same point before a render?
-  // is it a logical issue?
-  // is it an async issue (like something missinga  return?)
-  // is it a React Life Cycle issue? 
-  // If I change removeSpellFromState from 'spell index' to 'spell id' it has no effect
-  //  note: adding spells seems to work fine, but when you start removing it gets weird
   render() {
     const { spells = [] } = this.context;
-    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
+    //console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
