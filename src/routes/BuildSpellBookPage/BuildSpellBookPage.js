@@ -86,22 +86,35 @@ export default class BuildSpellBookPage extends Component {
   }
 
   findSpellById = (id) => {
-    return this.state.spellsInSpellBook.filter(spell => {
+    // Finds any spell in this.context.spells (all spells we have) when given a spell id
+    return this.context.spells.find(spell => {
       return spell.id === id;
     });
   }
+
   isSpellSelected = (spellId) => {
     // This function will take in the spellId and will determine if that spell
     // is in the state version of the spellbook. If it is it will return true, if not it returns false.
-    const result = this.findSpellById(spellId);
+    //const result = this.findSpellInSpellBook(spellId);
+    const result = this.state.spellsInSpellBook.filter(spell => {
+      return spell.id === spellId;
+    });
 
     return result.length > 0 ? true : false;
   }
+  addSpellToState = spell => {
+    let newSpells = this.state.spellsInSpellBook.push(spell);
+    this.setState({
+      spellsInSpellBook: newSpells
+    })
+  }
+  removeSpellFromState = spell => {
 
+  }
   handleSpellClick = spellId => {
    // ev.preventDefault();
     console.log(`spellId`, spellId);
-    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
+    
 
    // every page render: run a function to highlight the spells that are in the spellbook DONE
     // is spellId in the spellsInSpellBook? (does spellId match any ids in that spellbook)
@@ -110,8 +123,13 @@ export default class BuildSpellBookPage extends Component {
     // if yes, remove spell to spellsinSpellBook (if a spell is highlighted and clicked, remove it from spellbook and unhighlight)
     // if no, add spell to spellsinSpellbook (if a spell is not selected and clicked, add it to the spellbook and highlight it)
     // should be ADD or REMOVE spell from spellbook
-    this.isSpellSelected(spellId) ? console.log('remove from state') : console.log('add to state');
-
+    
+    // If a spell is selected already and clicked, we remove it from state
+    // If a spell hasnt been selected and is clicked, we add it to state
+    const clickedSpell = this.findSpellById(spellId);
+    // this.addSpellToState(clickedSpell)
+    this.isSpellSelected(spellId) ? console.log('remove from state') : this.addSpellToState(clickedSpell);
+    console.log('spellsInSpellbook', this.state.spellsInSpellBook);
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
