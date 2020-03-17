@@ -39,50 +39,12 @@ export default class BuildSpellBookPage extends Component {
       // Find which ones are already in the deck
     const { id } = this.props.match.params;
     SpellApiService.getAllSpellsInSpellbookById(id)
-      .then(this.setSpellsInSpellBook)  // <-// OR just a function that sets state originally. compare later?
+      .then(this.setSpellsInSpellBook)  
       .catch(this.context.setError);
-      // highlight those spells / add to array of spellIdsInDeck
   }
 
   setSpellsInSpellBook = ( spellsInSpellBook ) => {
     this.setState({ spellsInSpellBook });
-  }
-
-  matchSpellsById = ( spellsInSpellBook ) => {
-
-  //   // return matchedSpells
-  //   // compare spellsInSpellBook to context.spells
-  //   // const matchedSpells = this.context.spells.filter(spell => spell.id === spellsInSpellBook.id);
-
-  //   // TEMP
-  //   spellsInSpellBook = [1, 2, 3];
-  //   const matchedSpells = [];
-  //   for (const spellbookSpell of spellsInSpellBook) {
-  //     const result = this.context.spells.filter(contextSpell => contextSpell.id !== spellbookSpell.id);
-  //     matchedSpells.push(result);
-  //   }
-  //   //console.log(matchedSpells);
-  //  // console.log('context.spells: ', this.context.spells);
-  }
-  toggleHighlightedClass = (spellbookSpells) => {
-  
-    // console.log(spellbookSpells);
-
-    // const selectedSpellIds = spellbookSpells.map(spell => spell.id);
-    // // each DIV has an prop ID = spellId we've selected. for each one, highlight it.
-
-    // this.context.spells.map(spell => {
-    //   // if spell matches any item in the selectedSpellIds array, add a property called .selected and set it to true // it not make it false
-    // })
-    // console.log(`selectedSpellIds: `, selectedSpellIds);
-    // // ADD TO CONTEXT A PROPERTY CALLED HIGHLIGHTED:
-    // // this.context.spells[index].selected = true
-    // // this.context.spells[1].highlighted = false
-    // const selected = 0;
-    // // TAKE WHATEVER IS IN STATE ,HIGHLIGHT IT
-    // // IF SOMETHING IS CLICKED, REMOVE IT FROM STATE / ADD TO STATE
-
-
   }
 
   findSpellById = (id) => {
@@ -95,16 +57,13 @@ export default class BuildSpellBookPage extends Component {
   isSpellSelected = (spellId) => { // <----------- pretty sure the issue is with this function? Maybe its the .filter? Issues occur when you click the same thing twice
     // This function will take in the spellId and will determine if that spell
     // is in the state version of the spellbook. If it is it will return true, if not it returns false.
-    //const result = this.findSpellInSpellBook(spellId);
-
 
     const result = this.state.spellsInSpellBook.filter(spell => {
       return spell.id === spellId;
     });
-
-    console.log(result);
     return result.length > 0 ? true : false;
   }
+
   addSpellToState = spell => {
     // state is immutable, so we can't do a .push here. We can concat and then put it in this way though
     // let newSpells = this.state.spellsInSpellBook.concat(spell);
@@ -112,6 +71,7 @@ export default class BuildSpellBookPage extends Component {
       spellsInSpellBook: [...this.state.spellsInSpellBook, spell]
     });
   }
+
   removeSpellFromState = idx => {
     let newSpellsArray = [...this.state.spellsInSpellBook]; // make a separate copy of the array
     newSpellsArray.splice(idx, 1); // removes the specificed element at the index
@@ -119,6 +79,7 @@ export default class BuildSpellBookPage extends Component {
       spellsInSpellBook: [...newSpellsArray]
     });
   }
+
   handleSpellClick = (spellId, spellIdx) => {
     // If a spell is selected already and clicked, we remove it from state
     // If a spell hasnt been selected and is clicked, we add it to state
