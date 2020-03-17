@@ -86,9 +86,16 @@ export default class BuildSpellBookPage extends Component {
     // event handler changes state => page rerender => conditions on rendering change the CSS
   }
 
-  handleSaveSubmit = () => {
-    //ev.preventDefault();
-    console.log('save button submit');
+  handleSaveSubmit = () => { // change to handleSaveClick
+    const { id } = this.props.match.params;
+    const newSpellsArray = this.state.spellsInSpellBook.map(spell => spell.id);
+    
+    SpellApiService.putSpellsInSpellBook(
+      id,
+      newSpellsArray)
+      .then(this.context.setSpells)
+      .then(() => this.props.history.push(`/spellbook/${id}`))
+      .catch(this.context.setError);
   }
 
   render() {

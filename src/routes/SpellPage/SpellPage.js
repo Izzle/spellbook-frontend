@@ -16,7 +16,7 @@ export default class SpellPage extends Component {
     this.context.clearError();
 
     SpellApiService.getSpellById(id)
-    //   .then(console.log)
+    //
     //   .catch(this.context.setError);
   }
 

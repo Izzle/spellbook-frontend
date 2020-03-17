@@ -77,21 +77,21 @@ const SpellApiService = {
     })
   },
   /**
-   * PUT all new spells to /spellbookId/:id/spells
+   * PUT all new spells to /spellbooks/:id/spells
    * @param {*} newSpellsArray An array of spell Ids
    */
-  putSpellsInSpellBook(newSpellsArray) {
-    return fetch(`${config.API_ENDPOINT}/spells`, {
+  putSpellsInSpellBook(spellbookId, newSpellsArray) {
+    return fetch(`${config.API_ENDPOINT}/spellbooks/${spellbookId}/spells`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
       },
-      body: newSpellsArray
+      body: JSON.stringify({spell_ids: newSpellsArray }) 
     })
     .then(res => {
-      return (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json();
+      if(!res.ok) {
+        Promise.reject(`Error: ${res}`)
+      }
     })
   }
 };
