@@ -21,7 +21,7 @@ export default class SpellBookListPage extends Component {
     return (
       <section className='SpellBookListPage'>
         <div className='SpellBookListPage__container'>
-          <h2>View your Spellbook selections here!</h2>
+          <h2>Select a Spellbook</h2>
           {spellbookList.map((spellbook, idx )=> {
             return <SpellBookLink
                       key={idx}

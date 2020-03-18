@@ -18,7 +18,7 @@ export default function SpellBookButtons(props){
             <button className='SpellBookButtons__button'>Edit Spellbook</button>
         </Link>
         <Link to='/spellbook' className='SpellBookButtons__Link'>
-            <button className='SpellBookButtons__button'>FIX: SPELLBOOK NAME</button>
+            <button className='SpellBookButtons__button'>View All Spellbooks</button>
         </Link>
     </div>);
 }

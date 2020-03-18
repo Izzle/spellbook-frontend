@@ -112,7 +112,9 @@ export default class BuildSpellBookPage extends Component {
     SpellApiService.putSpellsInSpellBook(
       id,
       newSpellsArray)
-      .then(this.context.setSpells) 
+      .then(this.context.setSpells)
+      // Since I didnt want to get into a mess trying to consume multiple Contexts, I instead passed the
+      // spellbook_name as state and have it get passed around a couple of times between the couple pages that need it
       .then(() => this.props.history.push(`/spellbook/${id}`, {spellbook_name: this.state.spellbook_name}))
       .catch(this.context.setError);
   }
@@ -126,14 +128,7 @@ export default class BuildSpellBookPage extends Component {
           <BuildSpellBookButtons 
             onSaveSubmit={this.handleSaveSubmit} 
             id={this.props.match.params.id}/>
-          <h2>Edit and build your deck here</h2>
-          <p>What do we need to do?
-            We need the buttons to SAVE DECK and a placeholder that looks like a button
-            <br />
-            Load all spells, for the spells that are already in a spellbook - highlight them.
-            When a button is pressed/clicked update state (add/remove that spell to state), which will highlight it.
-            When SAVE is pressed, make a POST request
-          </p>
+          <h2>Add or Remove Spells From Your Spellbook</h2>
           <div className='BuildSpellBookPage__Spells__container'>
           {spells.map((spell, idx) => {
                       const selectedValue = this.isSpellSelected(spell.id);

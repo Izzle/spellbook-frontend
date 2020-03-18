@@ -119,7 +119,7 @@ export default class CreateSpellPage extends Component {
     return (
       <section className='CreateSpellPage__main'>
           <form className='CreateSpellPage__form' onSubmit={e => this.handleSubmit(e)}>
-            <h2>Create a new Spell</h2>
+            <h2>Create a New Spell</h2>
             <div className='form-group'>
               <label htmlFor='add-spell-name'>Spell Name </label>
               <input
