@@ -1,5 +1,5 @@
 .Header {
-    background-color: lightgray;
+    background-color: #553F30;
 }
 .Header__not-logged-in, .Header__logged-in {
   display: flex;
