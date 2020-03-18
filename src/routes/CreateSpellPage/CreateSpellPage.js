@@ -137,18 +137,23 @@ export default class CreateSpellPage extends Component {
             </div>
 
             <div className='form-group'>
-              <label htmlFor='add-spell-school'>Magic School </label>
-              <input
-                type='text'
-                className='CreateSpellPage__control'
-                // on submit, the name will what the server will get data keys name after
-                name='add-spell-school'
-                id='add-spell-school'
-                 // Each time the user types anything into input, we update the state. This allows real-time error messages (ie before submit)
+              <label htmlFor="add-spell-school">Magic School </label>
+              <select 
+                name="add-spell-school"
+                id="add-spell-school"
                 onChange={e => this.updateSpell(e.target.value, 'school')}
-                required
-                />
-                {/* ADD VALIDATION HERE */}
+                required>
+                  <option value="">Select Magic School</option>
+                  <option value="Conjuration" defaultValue="selected">Conjuration</option>
+                  <option value="Necromancy">Necromancy</option>
+                  <option value="Evocation">Evocation</option>
+                  <option value="Abjuration">Abjuration</option>
+                  <option value="Transmutation">Transmutation</option>
+                  <option value="Divination">Divination</option>
+                  <option value="Enchantment">Enchantment</option>
+                  <option value="Illusion">Illusion</option>
+              </select>
+             {/* ADD VALIDATION HERE */}
             </div>
 
             <div className='form-group'>
