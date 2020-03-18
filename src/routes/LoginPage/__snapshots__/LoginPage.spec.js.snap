@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> renders this UI as expected 1`] = `
+<section
+  className="LoginPage"
+>
+  <h2>
+    Login will be here!
+  </h2>
+</section>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RegisterPage /> renders this UI as expected 1`] = `
+<section
+  className="RegisterPage"
+>
+  <h2>
+    Register / Created an account here!
+  </h2>
+</section>
+`;
