@@ -1,3 +1,14 @@
+/*
+* Colors:
+* #E9D3AB - Tan
+* #55F30  - Brown
+* #641C14 - Deep red
+* #3A2D49 - Deep purple
+* #812398 - bright purple
+* white
+*
+*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,4 +26,5 @@ code {
 
 a {
   color: white;
+  text-decoration: none;
 }
