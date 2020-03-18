@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "spellbook-frontend-ron",
+    "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+    ]
+  }
