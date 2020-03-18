@@ -243,6 +243,7 @@ export default class CreateSpellPage extends Component {
               <textarea
                 rows='5'
                 cols='35'
+                maxLength={2500}
                 className='CreateSpellPage__control'
                 // on submit, the name will what the server will get data keys name after
                 name='add-spell-description'
