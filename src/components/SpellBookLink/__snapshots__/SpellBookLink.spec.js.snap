@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpellBookLink /> renders this UI as expected 1`] = `
+<a
+  className="SpellBookLink__Link"
+  href="/spellbook/undefined"
+  onClick={[Function]}
+>
+  <button
+    className="SpellBookLink__button"
+  />
+</a>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpellBookButtons /> renders this UI as expected 1`] = `
+<div>
+  <a
+    className="SpellBookButtons__Link"
+    href="/spellbook/undefined/build"
+    onClick={[Function]}
+  >
+    <button
+      className="SpellBookButtons__button"
+    >
+      Edit Spellbook
+    </button>
+  </a>
+  <a
+    className="SpellBookButtons__Link"
+    href="/spellbook"
+    onClick={[Function]}
+  >
+    <button
+      className="SpellBookButtons__button"
+    >
+      View All Spellbooks
+    </button>
+  </a>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ValidationError /> renders this UI as expected 1`] = `
+<div
+  className="validation_error"
+>
+  Test ERROR
+</div>
+`;

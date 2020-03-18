@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders this UI as expected 1`] = `
+<nav
+  className="Header"
+>
+  <ul
+    className="Nav__list"
+  >
+    <li>
+      <a
+        className="Nav__Link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        className="Nav__Link"
+        href="/spells"
+        onClick={[Function]}
+      >
+        Spells
+      </a>
+    </li>
+    <li>
+      <a
+        className="Nav__Link"
+        href="/spell-creator"
+        onClick={[Function]}
+      >
+        Create a Spell
+      </a>
+    </li>
+    <li>
+      <a
+        className="Nav__Link"
+        href="/spellbook"
+        onClick={[Function]}
+      >
+        View Spellbooks
+      </a>
+    </li>
+  </ul>
+  <h1>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Spellbook
+    </a>
+  </h1>
+  <div
+    className="Header__not-logged-in"
+  >
+    <a
+      className="Header__Link"
+      href="/login"
+      onClick={[Function]}
+    >
+      Log In
+    </a>
+    <a
+      className="Header__Link"
+      href="/register"
+      onClick={[Function]}
+    >
+      Register
+    </a>
+  </div>
+</nav>
+`;

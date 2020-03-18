@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> renders this UI as expected 1`] = `
+<ul
+  className="Nav__list"
+>
+  <li>
+    <a
+      className="Nav__Link"
+      href="/"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+  </li>
+  <li>
+    <a
+      className="Nav__Link"
+      href="/spells"
+      onClick={[Function]}
+    >
+      Spells
+    </a>
+  </li>
+  <li>
+    <a
+      className="Nav__Link"
+      href="/spell-creator"
+      onClick={[Function]}
+    >
+      Create a Spell
+    </a>
+  </li>
+  <li>
+    <a
+      className="Nav__Link"
+      href="/spellbook"
+      onClick={[Function]}
+    >
+      View Spellbooks
+    </a>
+  </li>
+</ul>
+`;

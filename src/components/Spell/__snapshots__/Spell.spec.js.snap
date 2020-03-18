@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spell /> renders this UI as expected 1`] = `
+<div
+  className="Spell__main"
+  onClick={[Function]}
+>
+  <h4 />
+  <p>
+    Level: undefined // School: undefined // Range: undefined
+  </p>
+  <p>
+    Classes: undefined (FIX THIS: Currently using the class ID)
+  </p>
+  <p>
+    Casting Time: undefined // Duration: undefined // Components: undefined
+  </p>
+  <p>
+    Description: undefined
+  </p>
+  <h5>
+    At higher levels
+  </h5>
+  <p>
+    Plus 1 damage
+  </p>
+</div>
+`;

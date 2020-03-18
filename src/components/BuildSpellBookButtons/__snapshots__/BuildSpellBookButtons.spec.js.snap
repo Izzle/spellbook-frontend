@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BuildSpellBookButtons /> renders this UI as expected 1`] = `
+<div>
+  <button
+    className="BuildSpellBookButtons__button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Save Spellbook
+  </button>
+  <a
+    className="BuildSpellBookButtons__Link"
+    href="/spellbook"
+    onClick={[Function]}
+  >
+    <button
+      className="BuildSpellBookButtons__button"
+    >
+      View All Spellbooks
+    </button>
+  </a>
+</div>
+`;
