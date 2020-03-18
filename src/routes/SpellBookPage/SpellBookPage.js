@@ -18,7 +18,7 @@ export default class SpellBookPage extends Component {
 
     static defaultProps = {
         match: { params: {} },
-        location: { state: ''}
+        location: { state: {} }
     };
 
     static contextType = SpellContext;
@@ -31,6 +31,7 @@ export default class SpellBookPage extends Component {
           .then(this.context.setSpells)
           .catch(this.context.setError);
 
+        // find the spellbook_name from the Link and setState to its value
         const { spellbook_name } = this.props.location.state;
         this.setState({spellbook_name});
     }
@@ -42,7 +43,7 @@ export default class SpellBookPage extends Component {
                 <div className='SpellBookPage__container'>
                 <h2>{this.state.spellbook_name}</h2>
                 <SpellLibraryOptions />
-                <SpellBookButtons id={this.props.match.params.id}/>
+                <SpellBookButtons id={this.props.match.params.id} name={this.state.spellbook_name}/>
                 <div className='SpellBookPage__Spells__container'>
                     {spells.map((spell, idx) => {
                         return <Spell

@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import SpellBookListContext from '../../contexts/SpellBookListContext';
 import './SpellBookButtons.css';
 
 export default function SpellBookButtons(props){
@@ -9,8 +8,13 @@ export default function SpellBookButtons(props){
     // merge SpellBookButtons with SpellBookLink. Right now its more important that it just works,
     // I'll worry about technical debt later
 
-    return(<div>
-        <Link to={`/spellbook/${props.id}/build`} className='SpellBookButtons__Link'>
+    return(<div>    
+        <Link to={{
+            pathname: `/spellbook/${props.id}/build`,
+            state: {
+                spellbook_name: props.name
+            }}} 
+            className='SpellBookButtons__Link'>
             <button className='SpellBookButtons__button'>Edit Spellbook</button>
         </Link>
         <Link to='/spellbook' className='SpellBookButtons__Link'>

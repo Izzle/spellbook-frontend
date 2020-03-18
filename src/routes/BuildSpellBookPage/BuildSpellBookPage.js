@@ -12,10 +12,25 @@ import './BuildSpellBookPage.css';
 
 
 export default class BuildSpellBookPage extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      spellsInSpellBook: [],
+      spellbook_name: 'Spellbook' // passed from SpellBookButtons
+    }
+  }
 
-  state = {
-    spellsInSpellBook: [],
+  static defaultProps = {
+    match: { params: {} },
+    location: { state: {} }
   };
+
+  // state = {
+  //   spellsInSpellBook: [],
+  // };
+
+
   // add spells to spellsinSpellbook when componentmounts
   // function that checks if spells are in spellsInSpellBook, if they are it adds a "highlighted" class otherwise it removes it (maybe a toggle function)
   // compare spellsInSpellBook to this.context.spells, if they match it get highlighted - if they dont they are 'unselected'
@@ -32,15 +47,19 @@ export default class BuildSpellBookPage extends Component {
   static contextType = SpellContext;
 
   componentDidMount() {
-     // Show all spells
+    // Show all spells
     SpellApiService.getAllSpells()
        .then(this.context.setSpells)
        .catch(this.context.setError);
-      // Find which ones are already in the deck
+    // Find which ones are already in the deck
     const { id } = this.props.match.params;
     SpellApiService.getAllSpellsInSpellbookById(id)
       .then(this.setSpellsInSpellBook)  
       .catch(this.context.setError);
+
+    // find the spellbook_name from the Link and setState to its value
+    const { spellbook_name } = this.props.location.state;
+    this.setState({spellbook_name});
   }
 
   setSpellsInSpellBook = ( spellsInSpellBook ) => {
@@ -93,8 +112,8 @@ export default class BuildSpellBookPage extends Component {
     SpellApiService.putSpellsInSpellBook(
       id,
       newSpellsArray)
-      .then(this.context.setSpells)
-      .then(() => this.props.history.push(`/spellbook/${id}`))
+      .then(this.context.setSpells) 
+      .then(() => this.props.history.push(`/spellbook/${id}`, {spellbook_name: this.state.spellbook_name}))
       .catch(this.context.setError);
   }
 
@@ -104,7 +123,9 @@ export default class BuildSpellBookPage extends Component {
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
           <SpellLibraryOptions />
-          <BuildSpellBookButtons onSaveSubmit={this.handleSaveSubmit}/>
+          <BuildSpellBookButtons 
+            onSaveSubmit={this.handleSaveSubmit} 
+            id={this.props.match.params.id}/>
           <h2>Edit and build your deck here</h2>
           <p>What do we need to do?
             We need the buttons to SAVE DECK and a placeholder that looks like a button
