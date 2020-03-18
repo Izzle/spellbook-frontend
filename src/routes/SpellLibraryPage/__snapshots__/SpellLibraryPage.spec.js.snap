@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpellLibraryPage /> renders this UI as expected 1`] = `
+<section
+  className="SpellLibraryPage"
+>
+  <div
+    className="SpellLibraryPage__container"
+  >
+    <h2>
+      View All Spells
+    </h2>
+    <div
+      className="SpellLibraryOptions__container"
+    >
+      <label
+        htmlFor="class-select"
+      >
+        Select a class
+      </label>
+      <select
+        id="class-select"
+        name="classes"
+      >
+        <option
+          value=""
+        >
+          Class Name
+        </option>
+        <option
+          value="bard"
+        >
+          Bard
+        </option>
+        <option
+          value="cleric"
+        >
+          Cleric
+        </option>
+        <option
+          value="druid"
+        >
+          Druid
+        </option>
+        <option
+          value="paladin"
+        >
+          Paladin
+        </option>
+        <option
+          value="sorcerer"
+        >
+          Sorcerer
+        </option>
+        <option
+          value="wizard"
+        >
+          Wizard
+        </option>
+        <option
+          value="warlock"
+        >
+          Warlock
+        </option>
+      </select>
+      <label
+        htmlFor="spell-filter"
+      >
+        Filter
+      </label>
+      <select
+        id="spell-filter"
+        name="filters"
+      >
+        <option
+          value=""
+        >
+          By
+        </option>
+        <option
+          value="level"
+        >
+          Level
+        </option>
+        <option
+          value="range"
+        >
+          Range
+        </option>
+        <option
+          value="TESTVLAUES"
+        >
+          TEST VALUES
+        </option>
+        <option
+          value="TESTVLAUES2"
+        >
+          TEST VALUES 2
+        </option>
+      </select>
+    </div>
+    <div
+      className="SpellLibraryPage__Spells__container"
+    />
+  </div>
+</section>
+`;

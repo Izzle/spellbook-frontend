@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpellBookPage /> renders this UI as expected 1`] = `
+<section
+  className="SpellBookPage"
+>
+  <div
+    className="SpellBookPage__container"
+  >
+    <h2 />
+    <div
+      className="SpellLibraryOptions__container"
+    >
+      <label
+        htmlFor="class-select"
+      >
+        Select a class
+      </label>
+      <select
+        id="class-select"
+        name="classes"
+      >
+        <option
+          value=""
+        >
+          Class Name
+        </option>
+        <option
+          value="bard"
+        >
+          Bard
+        </option>
+        <option
+          value="cleric"
+        >
+          Cleric
+        </option>
+        <option
+          value="druid"
+        >
+          Druid
+        </option>
+        <option
+          value="paladin"
+        >
+          Paladin
+        </option>
+        <option
+          value="sorcerer"
+        >
+          Sorcerer
+        </option>
+        <option
+          value="wizard"
+        >
+          Wizard
+        </option>
+        <option
+          value="warlock"
+        >
+          Warlock
+        </option>
+      </select>
+      <label
+        htmlFor="spell-filter"
+      >
+        Filter
+      </label>
+      <select
+        id="spell-filter"
+        name="filters"
+      >
+        <option
+          value=""
+        >
+          By
+        </option>
+        <option
+          value="level"
+        >
+          Level
+        </option>
+        <option
+          value="range"
+        >
+          Range
+        </option>
+        <option
+          value="TESTVLAUES"
+        >
+          TEST VALUES
+        </option>
+        <option
+          value="TESTVLAUES2"
+        >
+          TEST VALUES 2
+        </option>
+      </select>
+    </div>
+    <div>
+      <a
+        className="SpellBookButtons__Link"
+        href="/spellbook/undefined/build"
+        onClick={[Function]}
+      >
+        <button
+          className="SpellBookButtons__button"
+        >
+          Edit Spellbook
+        </button>
+      </a>
+      <a
+        className="SpellBookButtons__Link"
+        href="/spellbook"
+        onClick={[Function]}
+      >
+        <button
+          className="SpellBookButtons__button"
+        >
+          View All Spellbooks
+        </button>
+      </a>
+    </div>
+    <div
+      className="SpellBookPage__Spells__container"
+    />
+  </div>
+</section>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpellBookListPage /> renders this UI as expected 1`] = `
+<section
+  className="SpellBookListPage"
+>
+  <div
+    className="SpellBookListPage__container"
+  >
+    <h2>
+      Select a Spellbook
+    </h2>
+  </div>
+</section>
+`;
