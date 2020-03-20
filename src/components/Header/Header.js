@@ -43,9 +43,9 @@ export default class Header extends Component {
           <h1>
               <Link to='/'>Spellbook</Link>
           </h1>
-          {TokenService.hasAuthToken()
+          {/* {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
-            : this.renderLoginLink()}
+            : this.renderLoginLink()} */}
         </nav>
       </>
   }

@@ -124,7 +124,7 @@ export default class BuildSpellBookPage extends Component {
     return (
       <section className='BuildSpellBookPage'>
         <div className='BuildSpellBookPage__contaner'>
-          <SpellLibraryOptions />
+          {/* <SpellLibraryOptions /> */}
           <BuildSpellBookButtons 
             onSaveSubmit={this.handleSaveSubmit} 
             id={this.props.match.params.id}/>

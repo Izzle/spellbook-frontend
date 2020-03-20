@@ -36,14 +36,59 @@ exports[`<CreateSpellPage /> renders this UI as expected 1`] = `
       >
         Magic School 
       </label>
-      <input
-        className="CreateSpellPage__control"
+      <select
         id="add-spell-school"
         name="add-spell-school"
         onChange={[Function]}
         required={true}
-        type="text"
-      />
+      >
+        <option
+          value=""
+        >
+          Select Magic School
+        </option>
+        <option
+          defaultValue="selected"
+          value="Conjuration"
+        >
+          Conjuration
+        </option>
+        <option
+          value="Necromancy"
+        >
+          Necromancy
+        </option>
+        <option
+          value="Evocation"
+        >
+          Evocation
+        </option>
+        <option
+          value="Abjuration"
+        >
+          Abjuration
+        </option>
+        <option
+          value="Transmutation"
+        >
+          Transmutation
+        </option>
+        <option
+          value="Divination"
+        >
+          Divination
+        </option>
+        <option
+          value="Enchantment"
+        >
+          Enchantment
+        </option>
+        <option
+          value="Illusion"
+        >
+          Illusion
+        </option>
+      </select>
     </div>
     <div
       className="form-group"
@@ -197,6 +242,7 @@ exports[`<CreateSpellPage /> renders this UI as expected 1`] = `
         className="CreateSpellPage__control"
         cols="35"
         id="add-spell-description"
+        maxLength={2500}
         name="add-spell-description"
         onChange={[Function]}
         required={true}

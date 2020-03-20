@@ -45,14 +45,14 @@ class App extends Component{
                 path={'/'}
                 component={LandingPage}
               />
-              <Route 
+              {/* <Route             // will add in the future
                 path={'/login'}
                 component={LoginPage}
               />
               <Route 
                 path={'/register'}
                 component={RegisterPage}
-              />
+              /> */}
               <Route 
                 path={'/reset-password'}
                 component={ResetPasswordPage}

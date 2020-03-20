@@ -22,7 +22,7 @@ export default class SpellLibraryPage extends Component {
       <section className='SpellLibraryPage'>
         <div className='SpellLibraryPage__container'>
           <h2>View All Spells</h2>
-          <SpellLibraryOptions />
+          {/* <SpellLibraryOptions /> */}
           <div className='SpellLibraryPage__Spells__container'>
             {spells.map((spell, idx) => {
                 return <Spell

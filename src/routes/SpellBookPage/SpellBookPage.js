@@ -42,7 +42,7 @@ export default class SpellBookPage extends Component {
             <section className='SpellBookPage'>
                 <div className='SpellBookPage__container'>
                 <h2>{this.state.spellbook_name}</h2>
-                <SpellLibraryOptions />
+                {/* <SpellLibraryOptions /> */}
                 <SpellBookButtons id={this.props.match.params.id} name={this.state.spellbook_name}/>
                 <div className='SpellBookPage__Spells__container'>
                     {spells.map((spell, idx) => {
