@@ -58,24 +58,6 @@ exports[`<App /> renders this UI as expected 1`] = `
           Spellbook
         </a>
       </h1>
-      <div
-        className="Header__not-logged-in"
-      >
-        <a
-          className="Header__Link"
-          href="/login"
-          onClick={[Function]}
-        >
-          Log In
-        </a>
-        <a
-          className="Header__Link"
-          href="/register"
-          onClick={[Function]}
-        >
-          Register
-        </a>
-      </div>
     </nav>
   </header>
   <main
