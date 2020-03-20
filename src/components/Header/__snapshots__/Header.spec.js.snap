@@ -19,10 +19,10 @@ exports[`<Header /> renders this UI as expected 1`] = `
     <li>
       <a
         className="Nav__Link"
-        href="/spells"
+        href="/spellbook"
         onClick={[Function]}
       >
-        Spells
+        View Spellbooks
       </a>
     </li>
     <li>
@@ -37,10 +37,10 @@ exports[`<Header /> renders this UI as expected 1`] = `
     <li>
       <a
         className="Nav__Link"
-        href="/spellbook"
+        href="/spells"
         onClick={[Function]}
       >
-        View Spellbooks
+        Spells
       </a>
     </li>
   </ul>
