@@ -8,7 +8,7 @@ export default function SpellBookButtons(props){
     // merge SpellBookButtons with SpellBookLink. Right now its more important that it just works,
     // I'll worry about technical debt later
 
-    return(<div>    
+    return(<div className='SpellBookButtons__container'>    
         <Link to={{
             pathname: `/spellbook/${props.id}/build`,
             state: {
