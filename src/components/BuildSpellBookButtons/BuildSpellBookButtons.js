@@ -8,7 +8,7 @@ export default function BuildSpellBookButtons(props) {
     // after the service sends the new PUT request, we chain a .then(props.history.push(`/spellbooks/${paramsId}`))
 
     return(
-        <div>
+        <div className='BuildSpellBookButtons__container'>
             <button onClick={() => props.onSaveSubmit()} type='submit' className='BuildSpellBookButtons__button'>Save Spellbook</button>
 
             <Link to={`/spellbook`} className='BuildSpellBookButtons__Link'>

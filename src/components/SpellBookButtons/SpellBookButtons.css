@@ -1,11 +1,7 @@
 .SpellBookButtons__container {
-  /* container of button */
   display: flex;
-}
-
-.SpellBookButtons__Link {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .SpellBookButtons__button {
