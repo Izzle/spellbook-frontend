@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SpellBookButtons /> renders this UI as expected 1`] = `
-<div>
+<div
+  className="SpellBookButtons__container"
+>
   <a
     className="SpellBookButtons__Link"
     href="/spellbook/undefined/build"

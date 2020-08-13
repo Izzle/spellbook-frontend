@@ -8,7 +8,9 @@ exports[`<SpellBookPage /> renders this UI as expected 1`] = `
     className="SpellBookPage__container"
   >
     <h2 />
-    <div>
+    <div
+      className="SpellBookButtons__container"
+    >
       <a
         className="SpellBookButtons__Link"
         href="/spellbook/undefined/build"

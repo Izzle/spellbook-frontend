@@ -7,7 +7,9 @@ exports[`<BuildSpellBookPage /> renders this UI as expected 1`] = `
   <div
     className="BuildSpellBookPage__contaner"
   >
-    <div>
+    <div
+      className="BuildSpellBookButtons__container"
+    >
       <button
         className="BuildSpellBookButtons__button"
         onClick={[Function]}

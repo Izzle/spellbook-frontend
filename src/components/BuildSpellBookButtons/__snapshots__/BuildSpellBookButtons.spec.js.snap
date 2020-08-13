@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<BuildSpellBookButtons /> renders this UI as expected 1`] = `
-<div>
+<div
+  className="BuildSpellBookButtons__container"
+>
   <button
     className="BuildSpellBookButtons__button"
     onClick={[Function]}
